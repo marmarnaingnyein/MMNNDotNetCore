@@ -3,8 +3,8 @@
 AdoDotNetExamples blogService = new AdoDotNetExamples();
 
 Console.WriteLine("===============================");
-Console.WriteLine("1. Read");
-Console.WriteLine("2. Edit");
+Console.WriteLine("1. Select All");
+Console.WriteLine("2. Select By Filter");
 Console.WriteLine("3. Create");
 Console.WriteLine("4. Update");
 Console.WriteLine("5. Delete");
@@ -27,16 +27,18 @@ while (string.Equals(process.ToLower(), "c"))
     switch (choice)
     {
         case 1: 
-            Console.WriteLine("-----Select Operation list-----");
-            blogService.Read();
+            blogService.SelectAll();
             break;
         case 2:
-            
+            blogService.SelectBy();
+            break;
+        case 3:
+            blogService.Create();
             break;
     }
     
     Console.WriteLine("Please enter [E] to exit or [C] to continue");
-    process = Console.ReadLine();
+    process = Console.ReadLine()!;
 
     if (string.Equals(process.ToLower(), "e"))
     {
