@@ -13,15 +13,23 @@ string process = "c";
 
 while (string.Equals(process.ToLower(), "c"))
 {
-    
+    Console.WriteLine("===============================");
+    Console.WriteLine("1. Select All");
+    Console.WriteLine("2. Select By Filter");
+    Console.WriteLine("3. Create");
+    Console.WriteLine("4. Update");
+    Console.WriteLine("5. Delete");
+    Console.WriteLine("===============================");
     Console.WriteLine("Enter your choice number:");
-    int choice = Convert.ToInt32(Console.ReadLine());
+    string? strChoice = Console.ReadLine();
+    int choice = string.IsNullOrEmpty(strChoice) ? 0 : Convert.ToInt32(strChoice);
 
 // ReSharper disable once LoopVariableIsNeverChangedInsideLoop
-    while (choice is <= 0 or > 6)
+    while (string.IsNullOrEmpty(strChoice) || choice is <= 0 or > 6)
     {
         Console.WriteLine("Enter your choice number:");
-        choice = Convert.ToInt32(Console.ReadLine());
+        strChoice = Console.ReadLine()!;
+        choice = string.IsNullOrEmpty(strChoice) ? 0 : Convert.ToInt32(strChoice);
     }
 
     switch (choice)
@@ -34,6 +42,12 @@ while (string.Equals(process.ToLower(), "c"))
             break;
         case 3:
             blogService.Create();
+            break;
+        case 4:
+            blogService.Update();
+            break;
+        case 5:
+            blogService.Delete();
             break;
     }
     
