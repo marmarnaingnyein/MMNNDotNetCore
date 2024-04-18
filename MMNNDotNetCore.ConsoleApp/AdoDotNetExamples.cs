@@ -181,6 +181,12 @@ public class AdoDotNetExamples
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             dataAdapter.Fill(data);
 
+            if (data.Rows.Count == 0)
+            {
+                Console.WriteLine("Blog Id does not exist.");
+                return;
+            }
+
             BlogModel blogModel = new BlogModel()
             {
                 BlogId = data.Rows[0]["BlogId"].ToString()!,
@@ -252,6 +258,12 @@ public class AdoDotNetExamples
             command.Parameters.AddWithValue("@BlogId", id);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             dataAdapter.Fill(data);
+            
+            if (data.Rows.Count == 0)
+            {
+                Console.WriteLine("Blog Id does not exist.");
+                return;
+            }
 
             BlogModel blogModel = new BlogModel()
             {
