@@ -124,22 +124,22 @@ public class AdoDotNetExamples
 
         BlogModel newBlog = new BlogModel();
         
-        while (string.IsNullOrEmpty(newBlog.Title))
+        while (string.IsNullOrEmpty(newBlog.BlogTitle))
         {
             Console.WriteLine("Please enter new Blog Title");
-            newBlog.Title = Console.ReadLine()!;
+            newBlog.BlogTitle = Console.ReadLine()!;
         }
 
-        while (string.IsNullOrEmpty(newBlog.Author))
+        while (string.IsNullOrEmpty(newBlog.BlogAuthor))
         {
             Console.WriteLine("Please enter new Author");
-            newBlog.Author = Console.ReadLine()!;
+            newBlog.BlogAuthor = Console.ReadLine()!;
         }
 
-        while (string.IsNullOrEmpty(newBlog.Content))
+        while (string.IsNullOrEmpty(newBlog.BlogContent))
         {
             Console.WriteLine("Please enter new Content");
-            newBlog.Content = Console.ReadLine()!;
+            newBlog.BlogContent = Console.ReadLine()!;
         }
         
         int result;
@@ -147,9 +147,9 @@ public class AdoDotNetExamples
         {
             connection.Open();
             SqlCommand cmd = new SqlCommand(Query.Create,connection);
-            cmd.Parameters.AddWithValue("@BlogTitle", newBlog.Title);
-            cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.Author);
-            cmd.Parameters.AddWithValue("@BlogContent", newBlog.Content);
+            cmd.Parameters.AddWithValue("@BlogTitle", newBlog.BlogTitle);
+            cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.BlogAuthor);
+            cmd.Parameters.AddWithValue("@BlogContent", newBlog.BlogContent);
             
             result = cmd.ExecuteNonQuery();
             connection.Close();
@@ -190,44 +190,44 @@ public class AdoDotNetExamples
             BlogModel blogModel = new BlogModel()
             {
                 BlogId = data.Rows[0]["BlogId"].ToString()!,
-                Title = data.Rows[0]["BlogTitle"].ToString()!,
-                Author = data.Rows[0]["BlogAuthor"].ToString()!,
-                Content = data.Rows[0]["BlogContent"].ToString()!
+                BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
+                BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
+                BlogContent = data.Rows[0]["BlogContent"].ToString()!
             };
             
             Console.WriteLine("----- Blog Info -----");
             Console.WriteLine($"Blog Id : {blogModel.BlogId}");
-            Console.WriteLine($"Blog Title : {blogModel.Title}");
-            Console.WriteLine($"Blog Author : {blogModel.Author}");
-            Console.WriteLine($"Blog Content : {blogModel.Content}");
+            Console.WriteLine($"Blog Title : {blogModel.BlogTitle}");
+            Console.WriteLine($"Blog Author : {blogModel.BlogAuthor}");
+            Console.WriteLine($"Blog Content : {blogModel.BlogContent}");
             Console.WriteLine("===============================");
             
             BlogModel newBlog = new BlogModel();
         
-            while (string.IsNullOrEmpty(newBlog.Title))
+            while (string.IsNullOrEmpty(newBlog.BlogTitle))
             {
                 Console.WriteLine("Please enter update Blog Title");
-                newBlog.Title = Console.ReadLine()!;
+                newBlog.BlogTitle = Console.ReadLine()!;
             }
 
-            while (string.IsNullOrEmpty(newBlog.Author))
+            while (string.IsNullOrEmpty(newBlog.BlogAuthor))
             {
                 Console.WriteLine("Please enter update Author");
-                newBlog.Author = Console.ReadLine()!;
+                newBlog.BlogAuthor = Console.ReadLine()!;
             }
 
-            while (string.IsNullOrEmpty(newBlog.Content))
+            while (string.IsNullOrEmpty(newBlog.BlogContent))
             {
                 Console.WriteLine("Please enter update Content");
-                newBlog.Content = Console.ReadLine()!;
+                newBlog.BlogContent = Console.ReadLine()!;
             }
             
             connection.Open();
             SqlCommand cmd = new SqlCommand(Query.Update,connection);
             cmd.Parameters.AddWithValue("@BlogId", blogModel.BlogId);
-            cmd.Parameters.AddWithValue("@BlogTitle", newBlog.Title);
-            cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.Author);
-            cmd.Parameters.AddWithValue("@BlogContent", newBlog.Content);
+            cmd.Parameters.AddWithValue("@BlogTitle", newBlog.BlogTitle);
+            cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.BlogAuthor);
+            cmd.Parameters.AddWithValue("@BlogContent", newBlog.BlogContent);
             
             result = cmd.ExecuteNonQuery();
             connection.Close();
@@ -268,16 +268,16 @@ public class AdoDotNetExamples
             BlogModel blogModel = new BlogModel()
             {
                 BlogId = data.Rows[0]["BlogId"].ToString()!,
-                Title = data.Rows[0]["BlogTitle"].ToString()!,
-                Author = data.Rows[0]["BlogAuthor"].ToString()!,
-                Content = data.Rows[0]["BlogContent"].ToString()!
+                BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
+                BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
+                BlogContent = data.Rows[0]["BlogContent"].ToString()!
             };
             
             Console.WriteLine("----- Blog Info -----");
             Console.WriteLine($"Blog Id : {blogModel.BlogId}");
-            Console.WriteLine($"Blog Title : {blogModel.Title}");
-            Console.WriteLine($"Blog Author : {blogModel.Author}");
-            Console.WriteLine($"Blog Content : {blogModel.Content}");
+            Console.WriteLine($"Blog Title : {blogModel.BlogTitle}");
+            Console.WriteLine($"Blog Author : {blogModel.BlogAuthor}");
+            Console.WriteLine($"Blog Content : {blogModel.BlogContent}");
             Console.WriteLine("===============================");
             
             Console.WriteLine("Are you sure want to delete?");
