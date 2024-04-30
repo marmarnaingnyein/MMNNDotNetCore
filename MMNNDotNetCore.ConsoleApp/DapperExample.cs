@@ -13,6 +13,7 @@ public class DapperExample
     private void Read()
     {
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        
         //List<dynamic> lst = db.Query
     }
 }
