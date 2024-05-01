@@ -3,13 +3,6 @@ using MMNNDotNetCore.ConsoleApp.Features;
 
 AdoDotNetExamples blogService = new AdoDotNetExamples();
 
-Console.WriteLine("===============================");
-Console.WriteLine("1. Select All");
-Console.WriteLine("2. Select By Filter");
-Console.WriteLine("3. Create");
-Console.WriteLine("4. Update");
-Console.WriteLine("5. Delete");
-Console.WriteLine("===============================");
 string process = "c";
 
 while (string.Equals(process.ToLower(), "c"))

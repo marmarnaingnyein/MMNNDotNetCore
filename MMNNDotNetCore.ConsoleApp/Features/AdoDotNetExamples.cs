@@ -6,9 +6,10 @@ namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class AdoDotNetExamples
 {
+    private DataGenerateService _dataGenerateService = new DataGenerateService();
     public void SelectAll()
     {
-        Console.WriteLine("-----Select Operation list-----");
+        Console.WriteLine("-----Select Blog list-----");
 
         DataTable data = new DataTable();
 
@@ -21,11 +22,13 @@ public class AdoDotNetExamples
 
         foreach (DataRow item in data.Rows)
         {
-            Console.WriteLine($"Blog Id : {item["BlogId"]}");
-            Console.WriteLine($"Blog Title : {item["BlogTitle"]}");
-            Console.WriteLine($"Blog Author : {item["BlogAuthor"]}");
-            Console.WriteLine($"Blog Content : {item["BlogContent"]}");
-            Console.WriteLine("===============================");
+            _dataGenerateService.WriteDataList(new BlogModel()
+            {
+                BlogId = Convert.ToInt32(item["BlogId"]),
+                BlogTitle = item["BlogTitle"].ToString()!,
+                BlogAuthor = item["BlogAuthor"].ToString()!,
+                BlogContent = item["BlogContent"].ToString()!
+            });
         }
     }
 
@@ -102,38 +105,20 @@ public class AdoDotNetExamples
         
         foreach (DataRow item in data.Rows)
         {
-            Console.WriteLine("---- Select By Filter -----");
-            Console.WriteLine($"Blog Id : {item["BlogId"]}");
-            Console.WriteLine($"Blog Title : {item["BlogTitle"]}");
-            Console.WriteLine($"Blog Author : {item["BlogAuthor"]}");
-            Console.WriteLine($"Blog Content : {item["BlogContent"]}");
-            Console.WriteLine("===============================");
+            _dataGenerateService.WriteDataList(new BlogModel()
+            {
+                BlogId = Convert.ToInt32(item["BlogId"]),
+                BlogTitle = item["BlogTitle"].ToString()!,
+                BlogAuthor = item["BlogAuthor"].ToString()!,
+                BlogContent = item["BlogContent"].ToString()!
+            });
         }
     }
 
     public void Create()
     {
         Console.WriteLine("----- Create Blog -----");
-
-        BlogModel newBlog = new BlogModel();
-        
-        while (string.IsNullOrEmpty(newBlog.BlogTitle))
-        {
-            Console.WriteLine("Please enter new Blog Title");
-            newBlog.BlogTitle = Console.ReadLine()!;
-        }
-
-        while (string.IsNullOrEmpty(newBlog.BlogAuthor))
-        {
-            Console.WriteLine("Please enter new Author");
-            newBlog.BlogAuthor = Console.ReadLine()!;
-        }
-
-        while (string.IsNullOrEmpty(newBlog.BlogContent))
-        {
-            Console.WriteLine("Please enter new Content");
-            newBlog.BlogContent = Console.ReadLine()!;
-        }
+        BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
         
         int result;
         using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
@@ -155,14 +140,7 @@ public class AdoDotNetExamples
     public void Update()
     {
         Console.WriteLine("----- Update Blog -----");
-        int id = 0;
-
-        while (id <= 0)
-        {
-            Console.WriteLine("Enter Blog Id:");
-            string strId = Console.ReadLine()!;
-            id = string.IsNullOrEmpty(strId) ? 0 : Convert.ToInt32(strId);
-        }
+        int id = _dataGenerateService.GetEditBlogId();
         
         DataTable data = new DataTable();
         int result;
@@ -180,44 +158,20 @@ public class AdoDotNetExamples
                 return;
             }
 
-            BlogModel blogModel = new BlogModel()
+            Console.WriteLine("----- Blog Info -----");
+            _dataGenerateService.WriteDataList(new BlogModel()
             {
-                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"].ToString()!),
+                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
                 BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
                 BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
                 BlogContent = data.Rows[0]["BlogContent"].ToString()!
-            };
+            });
             
-            Console.WriteLine("----- Blog Info -----");
-            Console.WriteLine($"Blog Id : {blogModel.BlogId}");
-            Console.WriteLine($"Blog Title : {blogModel.BlogTitle}");
-            Console.WriteLine($"Blog Author : {blogModel.BlogAuthor}");
-            Console.WriteLine($"Blog Content : {blogModel.BlogContent}");
-            Console.WriteLine("===============================");
-            
-            BlogModel newBlog = new BlogModel();
-        
-            while (string.IsNullOrEmpty(newBlog.BlogTitle))
-            {
-                Console.WriteLine("Please enter update Blog Title");
-                newBlog.BlogTitle = Console.ReadLine()!;
-            }
-
-            while (string.IsNullOrEmpty(newBlog.BlogAuthor))
-            {
-                Console.WriteLine("Please enter update Author");
-                newBlog.BlogAuthor = Console.ReadLine()!;
-            }
-
-            while (string.IsNullOrEmpty(newBlog.BlogContent))
-            {
-                Console.WriteLine("Please enter update Content");
-                newBlog.BlogContent = Console.ReadLine()!;
-            }
+            BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
             
             connection.Open();
             SqlCommand cmd = new SqlCommand(Query.Update,connection);
-            cmd.Parameters.AddWithValue("@BlogId", blogModel.BlogId);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             cmd.Parameters.AddWithValue("@BlogTitle", newBlog.BlogTitle);
             cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.BlogAuthor);
             cmd.Parameters.AddWithValue("@BlogContent", newBlog.BlogContent);
@@ -233,14 +187,7 @@ public class AdoDotNetExamples
     public void Delete()
     {
         Console.WriteLine("----- Update Blog -----");
-        int id = 0;
-
-        while (id <= 0)
-        {
-            Console.WriteLine("Enter Blog Id:");
-            string strId = Console.ReadLine()!;
-            id = string.IsNullOrEmpty(strId) ? 0 : Convert.ToInt32(strId);
-        }
+        int id = _dataGenerateService.GetEditBlogId();
         
         DataTable data = new DataTable();
         int result;
@@ -258,25 +205,16 @@ public class AdoDotNetExamples
                 return;
             }
 
-            BlogModel blogModel = new BlogModel()
+            Console.WriteLine("----- Blog Info -----");
+            _dataGenerateService.WriteDataList(new BlogModel()
             {
-                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"].ToString()!),
+                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
                 BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
                 BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
                 BlogContent = data.Rows[0]["BlogContent"].ToString()!
-            };
+            });
             
-            Console.WriteLine("----- Blog Info -----");
-            Console.WriteLine($"Blog Id : {blogModel.BlogId}");
-            Console.WriteLine($"Blog Title : {blogModel.BlogTitle}");
-            Console.WriteLine($"Blog Author : {blogModel.BlogAuthor}");
-            Console.WriteLine($"Blog Content : {blogModel.BlogContent}");
-            Console.WriteLine("===============================");
-            
-            Console.WriteLine("Are you sure want to delete?");
-            Console.WriteLine("Enter y or n");
-            string confirm = Console.ReadLine()!;
-            if (confirm.ToLower() == "n")
+            if (!_dataGenerateService.ConfirmToDelete())
             {
                 return;
             }
