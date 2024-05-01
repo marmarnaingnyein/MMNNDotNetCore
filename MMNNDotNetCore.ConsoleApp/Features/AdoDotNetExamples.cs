@@ -1,25 +1,18 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using MMNNDotNetCore.ConsoleApp.Service;
 
-namespace MMNNDotNetCore.ConsoleApp;
+namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class AdoDotNetExamples
 {
-    private SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder()
-    {
-        DataSource = ".",
-        InitialCatalog = "DotNetTrainingBatch4",
-        UserID = "sa",
-        Password = "sa@123",
-    };
-
     public void SelectAll()
     {
         Console.WriteLine("-----Select Operation list-----");
 
         DataTable data = new DataTable();
 
-        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             SqlCommand command = new SqlCommand(Query.Select, connection);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
@@ -98,7 +91,7 @@ public class AdoDotNetExamples
         
         DataTable data = new DataTable();
 
-        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add(para);
@@ -143,7 +136,7 @@ public class AdoDotNetExamples
         }
         
         int result;
-        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             connection.Open();
             SqlCommand cmd = new SqlCommand(Query.Create,connection);
@@ -174,7 +167,7 @@ public class AdoDotNetExamples
         DataTable data = new DataTable();
         int result;
         
-        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             SqlCommand command = new SqlCommand(Query.SelectById, connection);
             command.Parameters.AddWithValue("@BlogId", id);
@@ -189,7 +182,7 @@ public class AdoDotNetExamples
 
             BlogModel blogModel = new BlogModel()
             {
-                BlogId = data.Rows[0]["BlogId"].ToString()!,
+                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"].ToString()!),
                 BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
                 BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
                 BlogContent = data.Rows[0]["BlogContent"].ToString()!
@@ -252,7 +245,7 @@ public class AdoDotNetExamples
         DataTable data = new DataTable();
         int result;
         
-        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             SqlCommand command = new SqlCommand(Query.SelectById, connection);
             command.Parameters.AddWithValue("@BlogId", id);
@@ -267,7 +260,7 @@ public class AdoDotNetExamples
 
             BlogModel blogModel = new BlogModel()
             {
-                BlogId = data.Rows[0]["BlogId"].ToString()!,
+                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"].ToString()!),
                 BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
                 BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
                 BlogContent = data.Rows[0]["BlogContent"].ToString()!
