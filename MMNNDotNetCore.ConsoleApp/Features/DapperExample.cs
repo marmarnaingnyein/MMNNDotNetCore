@@ -6,7 +6,9 @@ using MMNNDotNetCore.ConsoleApp.Service;
 namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class DapperExample
-{
+{    
+    private DataGenerateService _dataGenerateService = new DataGenerateService();
+
     public void Run()
     {
         Read();
@@ -19,11 +21,7 @@ public class DapperExample
 
         foreach (var item in lst)
         {
-            Console.WriteLine(item.BlogId);
-            Console.WriteLine(item.BlogTitle);
-            Console.WriteLine(item.BlogAuthor);
-            Console.WriteLine(item.BlogContent);
-            Console.WriteLine("=============================");
+            _dataGenerateService.WriteDataList(item);
         }
     }
 
@@ -39,24 +37,16 @@ public class DapperExample
             return;
         }
         
-        Console.WriteLine(item.BlogId);
-        Console.WriteLine(item.BlogTitle);
-        Console.WriteLine(item.BlogAuthor);
-        Console.WriteLine(item.BlogContent);
-        Console.WriteLine("=============================");
+        _dataGenerateService.WriteDataList(item);
     }
 
-    private void Create(string title, string author, string content)
+    private void Create()
     {
-        BlogModel model = new BlogModel()
-        {
-            BlogTitle = title,
-            BlogAuthor = author,
-            BlogContent = content
-        };
+        Console.WriteLine("----- Create Blog -----");
+        BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
         
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-        int result = db.Execute(Query.Create, model);
+        int result = db.Execute(Query.Create, newBlog);
         
         string message = result > 0 ? "---- Saving Successful. ----" : "---- Saving Fail! ----";
         Console.WriteLine(message);
