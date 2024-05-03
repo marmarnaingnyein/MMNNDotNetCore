@@ -23,10 +23,10 @@ public class DapperExample
     public void SelectBy()
     {
         string query = string.Empty;
-        SqlParameter para = _dataGenerateService.GetFilters(out query);
+        BlogModel para = _dataGenerateService.GetFiltersBlog(out query);
         
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-        List<BlogModel> lst = db.Query<BlogModel>(query, param:para).ToList();
+        List<BlogModel> lst = db.Query<BlogModel>(query, para).ToList();
 
         foreach (var item in lst)
         {

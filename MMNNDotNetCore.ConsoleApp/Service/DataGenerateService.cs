@@ -127,4 +127,68 @@ public class DataGenerateService
 
         return para;
     }
+
+    public BlogModel GetFiltersBlog(out string query)
+    {
+        
+        Console.WriteLine("Please choose your filter by...");
+        Console.WriteLine("1. Select by Blog Id");
+        Console.WriteLine("2. Select by Title");
+        Console.WriteLine("3. Select by Author");
+        int choice = Convert.ToInt32(Console.ReadLine());
+        
+        while (choice is <= 0 or > 3)
+        {
+            Console.WriteLine("Enter your choice number:");
+            choice = Convert.ToInt32(Console.ReadLine());
+        }
+
+        string id = string.Empty;
+        string title = string.Empty;
+        string author = String.Empty;
+        switch (choice)
+        {
+            case 1:
+                while (string.IsNullOrEmpty(id))
+                {
+                    Console.WriteLine("Please enter Blog Id");
+                    id = Console.ReadLine()!;
+                }
+                break;
+            case 2:
+                while (string.IsNullOrEmpty(title))
+                {
+                    Console.WriteLine("Please enter title");
+                    title = Console.ReadLine()!;
+                }
+                break;
+            case 3:
+                while (string.IsNullOrEmpty(author))
+                {
+                    Console.WriteLine("Please enter author");
+                    author = Console.ReadLine()!;
+                }
+                break;
+        }
+
+        BlogModel filter = new BlogModel();
+        query = Query.Select + " Where ";
+        if (!string.IsNullOrEmpty(id))
+        {
+            query += "BlogId = @BlogId";
+            filter.BlogId = Convert.ToInt32(id);
+        }
+        else if (!string.IsNullOrEmpty(title))
+        {
+            query += "BlogTitle = @BlogTitle";
+            filter.BlogTitle = title;
+        }
+        else if (!string.IsNullOrEmpty(author))
+        {
+            query += "BlogAuthor = @BlogAuthor";
+            filter.BlogAuthor = author;
+        }
+
+        return filter;
+    }
 }
