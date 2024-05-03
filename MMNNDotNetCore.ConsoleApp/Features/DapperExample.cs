@@ -63,7 +63,28 @@ public class DapperExample
 
     public void Update()
     {
+        Console.WriteLine("----- Update Blog -----");
+        int id = _dataGenerateService.GetEditBlogId();
+
+        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        BlogModel? item = db.Query<BlogModel>(Query.SelectById, 
+            new BlogModel { BlogId = id }).FirstOrDefault();
+
+        if (item is null)
+        {
+            Console.WriteLine("No Data Fount!");
+            return;
+        }
         
+        _dataGenerateService.WriteDataList(item);
+        
+        BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
+        newBlog.BlogId = id;
+
+        int result = db.Execute(Query.Update, newBlog);
+        
+        string message = result > 0 ? "---- Updating Successful. ----" : "---- Updating Fail! ----";
+        Console.WriteLine(message);
     }
 
     public void Delete()
