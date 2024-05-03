@@ -186,7 +186,7 @@ public class AdoDotNetExamples
 
     public void Delete()
     {
-        Console.WriteLine("----- Update Blog -----");
+        Console.WriteLine("----- Delete Blog -----");
         int id = _dataGenerateService.GetEditBlogId();
         
         DataTable data = new DataTable();

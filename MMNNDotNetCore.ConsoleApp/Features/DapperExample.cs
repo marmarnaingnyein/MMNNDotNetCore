@@ -52,9 +52,38 @@ public class DapperExample
         Console.WriteLine(message);
     }
 
-    private void Delete(int id)
+    private void Delete()
     {
+        Console.WriteLine("----- Delete Blog -----");
+        int id = _dataGenerateService.GetEditBlogId();
+        
+        DataTable data = new DataTable();
+
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        
+        var item = db.Query(Query.SelectById, 
+            new BlogModel { BlogId = id }).FirstOrDefault();
+
+        if (item is null)
+        {
+            Console.WriteLine("No Data Fount!");
+            return;
+        }
+
+        Console.WriteLine("----- Blog Info -----");
+        _dataGenerateService.WriteDataList(new BlogModel()
+        {
+            BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
+            BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
+            BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
+            BlogContent = data.Rows[0]["BlogContent"].ToString()!
+        });
+            
+        if (!_dataGenerateService.ConfirmToDelete())
+        {
+            return;
+        }
+
         int result = db.Execute(Query.Delete, 
             new BlogModel { BlogId = id });
         
