@@ -51,4 +51,14 @@ public class DapperExample
         string message = result > 0 ? "---- Saving Successful. ----" : "---- Saving Fail! ----";
         Console.WriteLine(message);
     }
+
+    private void Delete(int id)
+    {
+        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        int result = db.Execute(Query.Delete, 
+            new BlogModel { BlogId = id });
+        
+        string message = result > 0 ? "---- Delete Successful. ----" : "---- Delete Fail! ----";
+        Console.WriteLine(message);
+    }
 }
