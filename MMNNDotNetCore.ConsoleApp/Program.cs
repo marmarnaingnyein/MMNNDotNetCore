@@ -1,7 +1,8 @@
 ﻿using MMNNDotNetCore.ConsoleApp;
 using MMNNDotNetCore.ConsoleApp.Features;
 
-AdoDotNetExamples blogService = new AdoDotNetExamples();
+// AdoDotNetExamples service = new AdoDotNetExamples();
+DapperExample service = new DapperExample();
 
 string process = "c";
 
@@ -29,19 +30,19 @@ while (string.Equals(process.ToLower(), "c"))
     switch (choice)
     {
         case 1: 
-            blogService.SelectAll();
+            service.SelectAll();
             break;
         case 2:
-            blogService.SelectBy();
+            service.SelectBy();
             break;
         case 3:
-            blogService.Create();
+            service.Create();
             break;
         case 4:
-            blogService.Update();
+            service.Update();
             break;
         case 5:
-            blogService.Delete();
+            service.Delete();
             break;
     }
     

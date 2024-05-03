@@ -9,12 +9,7 @@ public class DapperExample
 {    
     private DataGenerateService _dataGenerateService = new DataGenerateService();
 
-    public void Run()
-    {
-        Read();
-    }
-
-    private void Read()
+    public void SelectAll()
     {
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         List<BlogModel> lst = db.Query<BlogModel>(Query.Select).ToList();
@@ -25,7 +20,21 @@ public class DapperExample
         }
     }
 
-    private void Edit(int id)
+    public void SelectBy()
+    {
+        string query = string.Empty;
+        SqlParameter para = _dataGenerateService.GetFilters(out query);
+        
+        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        List<BlogModel> lst = db.Query<BlogModel>(query, param:para).ToList();
+
+        foreach (var item in lst)
+        {
+            _dataGenerateService.WriteDataList(item);
+        }
+    }
+
+    public void Edit(int id)
     {
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         var item = db.Query(Query.SelectById, 
@@ -40,7 +49,7 @@ public class DapperExample
         _dataGenerateService.WriteDataList(item);
     }
 
-    private void Create()
+    public void Create()
     {
         Console.WriteLine("----- Create Blog -----");
         BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
@@ -52,16 +61,19 @@ public class DapperExample
         Console.WriteLine(message);
     }
 
-    private void Delete()
+    public void Update()
+    {
+        
+    }
+
+    public void Delete()
     {
         Console.WriteLine("----- Delete Blog -----");
         int id = _dataGenerateService.GetEditBlogId();
         
-        DataTable data = new DataTable();
-
         using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         
-        var item = db.Query(Query.SelectById, 
+        BlogModel? item = db.Query<BlogModel>(Query.SelectById, 
             new BlogModel { BlogId = id }).FirstOrDefault();
 
         if (item is null)
@@ -71,13 +83,7 @@ public class DapperExample
         }
 
         Console.WriteLine("----- Blog Info -----");
-        _dataGenerateService.WriteDataList(new BlogModel()
-        {
-            BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
-            BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
-            BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
-            BlogContent = data.Rows[0]["BlogContent"].ToString()!
-        });
+        _dataGenerateService.WriteDataList(item);
             
         if (!_dataGenerateService.ConfirmToDelete())
         {

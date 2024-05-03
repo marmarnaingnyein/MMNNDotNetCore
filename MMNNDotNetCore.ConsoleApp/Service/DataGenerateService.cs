@@ -1,4 +1,6 @@
-﻿namespace MMNNDotNetCore.ConsoleApp.Service;
+﻿using System.Data.SqlClient;
+
+namespace MMNNDotNetCore.ConsoleApp.Service;
 
 public class DataGenerateService
 {
@@ -61,5 +63,68 @@ public class DataGenerateService
         }
 
         return true;
+    }
+
+    public SqlParameter GetFilters(out string query)
+    {
+        Console.WriteLine("Please choose your filter by...");
+        Console.WriteLine("1. Select by Blog Id");
+        Console.WriteLine("2. Select by Title");
+        Console.WriteLine("3. Select by Author");
+        int choice = Convert.ToInt32(Console.ReadLine());
+        
+        while (choice is <= 0 or > 3)
+        {
+            Console.WriteLine("Enter your choice number:");
+            choice = Convert.ToInt32(Console.ReadLine());
+        }
+
+        string id = string.Empty;
+        string title = string.Empty;
+        string author = String.Empty;
+        switch (choice)
+        {
+            case 1:
+                while (string.IsNullOrEmpty(id))
+                {
+                    Console.WriteLine("Please enter Blog Id");
+                    id = Console.ReadLine()!;
+                }
+                break;
+            case 2:
+                while (string.IsNullOrEmpty(title))
+                {
+                    Console.WriteLine("Please enter title");
+                    title = Console.ReadLine()!;
+                }
+                break;
+            case 3:
+                while (string.IsNullOrEmpty(author))
+                {
+                    Console.WriteLine("Please enter author");
+                    author = Console.ReadLine()!;
+                }
+                break;
+        }
+
+        SqlParameter para = new SqlParameter();
+        query = Query.Select + " Where ";
+        if (!string.IsNullOrEmpty(id))
+        {
+            query += "BlogId = @BlogId";
+            para = new SqlParameter("@BlogId", id);
+        }
+        else if (!string.IsNullOrEmpty(title))
+        {
+            query += "BlogTitle = @Title";
+            para = new SqlParameter("@Title", title);
+        }
+        else if (!string.IsNullOrEmpty(author))
+        {
+            query += "BlogAuthor = @Author";
+            para = new SqlParameter("@Author", author);
+        }
+
+        return para;
     }
 }
