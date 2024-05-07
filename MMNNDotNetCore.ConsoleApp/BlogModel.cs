@@ -1,5 +1,8 @@
-﻿namespace MMNNDotNetCore.ConsoleApp;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace MMNNDotNetCore.ConsoleApp;
+
+[Table("Tbl_Blog")]
 public class BlogModel
 {
     public int BlogId { get; set; }
