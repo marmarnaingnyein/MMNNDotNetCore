@@ -34,21 +34,6 @@ public class DapperExample
         }
     }
 
-    public void Edit(int id)
-    {
-        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-        var item = db.Query(Query.SelectById, 
-            new BlogModel { BlogId = id }).FirstOrDefault();
-
-        if (item is null)
-        {
-            Console.WriteLine("No Data Fount!");
-            return;
-        }
-        
-        _dataGenerateService.WriteDataList(item);
-    }
-
     public void Create()
     {
         Console.WriteLine("----- Create Blog -----");

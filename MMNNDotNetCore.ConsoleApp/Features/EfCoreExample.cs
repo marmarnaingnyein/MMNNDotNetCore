@@ -1,4 +1,5 @@
-﻿using MMNNDotNetCore.ConsoleApp.DbService;
+﻿using Microsoft.EntityFrameworkCore;
+using MMNNDotNetCore.ConsoleApp.DbService;
 using MMNNDotNetCore.ConsoleApp.Service;
 
 namespace MMNNDotNetCore.ConsoleApp.Features;
@@ -40,4 +41,45 @@ public class EfCoreExample
             _dataGenerateService.WriteDataList(item);
         }
     }
+    
+    public void Create()
+    {
+        Console.WriteLine("----- Create Blog -----");
+        BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
+
+        _db.Add(newBlog);
+        int result = _db.SaveChanges();
+        
+        string message = result > 0 ? "---- Saving Successful. ----" : "---- Saving Fail! ----";
+        Console.WriteLine(message);
+    }
+
+    
+    public void Update()
+    {
+        Console.WriteLine("----- Update Blog -----");
+        int id = _dataGenerateService.GetEditBlogId();
+
+        BlogModel? item = _db.Blogs.AsNoTracking()
+            .FirstOrDefault(w => w.BlogId == id);
+
+        if (item is null)
+        {
+            Console.WriteLine("No Data Fount!");
+            return;
+        }
+        
+        _dataGenerateService.WriteDataList(item);
+        
+        BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
+        item.BlogTitle = newBlog.BlogTitle;
+        item.BlogAuthor = newBlog.BlogAuthor;
+        item.BlogContent = newBlog.BlogContent;
+
+        int result = _db.SaveChanges();
+        
+        string message = result > 0 ? "---- Updating Successful. ----" : "---- Updating Fail! ----";
+        Console.WriteLine(message);
+    }
+
 }
