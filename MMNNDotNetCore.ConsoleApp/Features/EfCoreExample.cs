@@ -54,7 +54,6 @@ public class EfCoreExample
         Console.WriteLine(message);
     }
 
-    
     public void Update()
     {
         Console.WriteLine("----- Update Blog -----");
@@ -82,4 +81,32 @@ public class EfCoreExample
         Console.WriteLine(message);
     }
 
+    public void Delete()
+    {
+        Console.WriteLine("----- Delete Blog -----");
+        int id = _dataGenerateService.GetEditBlogId();
+
+        BlogModel? item = _db.Blogs.AsNoTracking()
+            .FirstOrDefault(w => w.BlogId == id);
+
+        if (item is null)
+        {
+            Console.WriteLine("No Data Fount!");
+            return;
+        }
+
+        Console.WriteLine("----- Blog Info -----");
+        _dataGenerateService.WriteDataList(item);
+            
+        if (!_dataGenerateService.ConfirmToDelete())
+        {
+            return;
+        }
+
+        _db.Remove(item);
+        int result = _db.SaveChanges();
+        
+        string message = result > 0 ? "---- Delete Successful. ----" : "---- Delete Fail! ----";
+        Console.WriteLine(message);
+    }
 }

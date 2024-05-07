@@ -2,7 +2,8 @@
 using MMNNDotNetCore.ConsoleApp.Features;
 
 // AdoDotNetExamples service = new AdoDotNetExamples();
-DapperExample service = new DapperExample();
+// DapperExample service = new DapperExample();
+EfCoreExample service = new EfCoreExample();
 
 string process = "c";
 
