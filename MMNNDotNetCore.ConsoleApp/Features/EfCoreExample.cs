@@ -16,4 +16,15 @@ public class EfCoreExample
             _dataGenerateService.WriteDataList(item);
         }
     }
+    
+    public void SelectBy()
+    {
+        string query = string.Empty;
+        BlogModel para = _dataGenerateService.GetFiltersBlog(out query);
+        
+        // foreach (var item in lst)
+        // {
+        //     _dataGenerateService.WriteDataList(item);
+        // }
+    }
 }
