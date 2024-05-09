@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.DataProtection.Internal;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MMNNDotNetCore.RestApi.Controllers;
 
@@ -6,5 +7,9 @@ namespace MMNNDotNetCore.RestApi.Controllers;
 [ApiController]
 public class BlogController : ControllerBase
 {
-
+    [HttpGet]
+    public IActionResult Read()
+    {
+        return Ok();
+    }
 }
