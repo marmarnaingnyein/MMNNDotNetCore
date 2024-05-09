@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MMNNDotNetCore.ConsoleApp.Service;
+using Microsoft.Extensions.Options;
+using MMNNDotNetCore.Models;
 
 namespace MMNNDotNetCore.EFCore.EfAppDbContext;
 
@@ -10,4 +11,5 @@ public class EfAppDbContext : DbContext
         optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
     }
 
+    public DbSet<BlogModel> Blogs { get; set; }
 }

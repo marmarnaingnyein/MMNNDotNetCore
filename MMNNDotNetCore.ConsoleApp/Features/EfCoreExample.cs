@@ -1,9 +1,12 @@
-﻿namespace MMNNDotNetCore.ConsoleApp.Features;
+﻿using Microsoft.EntityFrameworkCore;
+using MMNNDotNetCore.EFCore.EfAppDbContext;
+
+namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class EfCoreExample
 {
     private DataGenerateService _dataGenerateService = new DataGenerateService();
-    private readonly AppDbContext _db = new AppDbContext();
+    private readonly EfAppDbContext _db = new EfAppDbContext();
     public void SelectAll()
     {
         List<BlogModel> lstBlog = _db.Blogs.ToList();
