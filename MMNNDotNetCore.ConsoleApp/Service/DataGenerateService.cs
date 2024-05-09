@@ -1,4 +1,4 @@
-﻿using System.Data.SqlClient;
+﻿
 
 namespace MMNNDotNetCore.ConsoleApp.Service;
 

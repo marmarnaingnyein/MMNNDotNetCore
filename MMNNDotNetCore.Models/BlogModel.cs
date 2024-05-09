@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MMNNDotNetCore.ConsoleApp;
+namespace MMNNDotNetCore.Models;
 
 [Table("Tbl_Blog")]
 public class BlogModel

@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MMNNDotNetCore.ConsoleApp.DbService;
-using MMNNDotNetCore.ConsoleApp.Service;
-
-namespace MMNNDotNetCore.ConsoleApp.Features;
+﻿namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class EfCoreExample
 {
