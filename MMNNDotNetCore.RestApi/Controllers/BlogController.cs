@@ -8,7 +8,31 @@ namespace MMNNDotNetCore.RestApi.Controllers;
 public class BlogController : ControllerBase
 {
     [HttpGet]
-    public IActionResult Read()
+    public IActionResult GetList()
+    {
+        return Ok();
+    }
+    
+    [HttpPost]
+    public IActionResult Create()
+    {
+        return Ok();
+    }
+    
+    [HttpPut]
+    public IActionResult Update()
+    {
+        return Ok();
+    }
+    
+    [HttpPatch]
+    public IActionResult Patch()
+    {
+        return Ok();
+    }
+    
+    [HttpDelete]
+    public IActionResult Delete()
     {
         return Ok();
     }
