@@ -1,8 +1,6 @@
-﻿using System.Data.SqlClient;
-using Microsoft.Data.SqlClient;
-using SqlConnectionStringBuilder = System.Data.SqlClient.SqlConnectionStringBuilder;
+﻿using SqlConnectionStringBuilder = System.Data.SqlClient.SqlConnectionStringBuilder;
 
-namespace MMNNDotNetCore.EFCore;
+namespace MMNNDotNetCore.Business;
 
 public static class ConnectionStrings
 {
