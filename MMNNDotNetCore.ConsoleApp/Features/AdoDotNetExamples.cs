@@ -3,19 +3,12 @@
 public class AdoDotNetExamples
 {
     private DataGenerateService _dataGenerateService = new DataGenerateService();
+    private AdoDotNetService _adoDotNetService = new AdoDotNetService();
     public void SelectAll()
     {
         Console.WriteLine("-----Select Blog list-----");
 
-        DataTable data = new DataTable();
-
-        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
-        {
-            SqlCommand command = new SqlCommand(Query.Select, connection);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(data);
-        }
-
+        DataTable data = _adoDotNetService.GetList(Query.Select);
         foreach (DataRow item in data.Rows)
         {
             _dataGenerateService.WriteDataList(new BlogModel()
@@ -32,16 +25,7 @@ public class AdoDotNetExamples
     {
         string query = string.Empty;
         SqlParameter para = _dataGenerateService.GetFilters(out query);
-        DataTable data = new DataTable();
-
-        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
-        {
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add(para);
-            // command.Parameters.AddWithValue("@Author", author);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(data);
-        }
+        DataTable data = _adoDotNetService.GetList(query, para);
         
         foreach (DataRow item in data.Rows)
         {
@@ -60,19 +44,13 @@ public class AdoDotNetExamples
         Console.WriteLine("----- Create Blog -----");
         BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
         
-        int result;
-        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
-        {
-            connection.Open();
-            SqlCommand cmd = new SqlCommand(Query.Create,connection);
-            cmd.Parameters.AddWithValue("@BlogTitle", newBlog.BlogTitle);
-            cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.BlogAuthor);
-            cmd.Parameters.AddWithValue("@BlogContent", newBlog.BlogContent);
-            
-            result = cmd.ExecuteNonQuery();
-            connection.Close();
-        }
+        List<SqlParameter> lstpara = new List<SqlParameter>();
+        lstpara.Add(new SqlParameter("@BlogTitle", newBlog.BlogTitle));
+        lstpara.Add(new SqlParameter("@BlogAuthor", newBlog.BlogAuthor));
+        lstpara.Add(new SqlParameter("@BlogContent", newBlog.BlogContent));
         
+        int result = _adoDotNetService.Execute(Query.Create, lstpara.ToArray());
+
         string message = result > 0 ? "---- Saving Successful. ----" : "---- Saving Fail! ----";
         Console.WriteLine(message);
     }
@@ -82,44 +60,34 @@ public class AdoDotNetExamples
         Console.WriteLine("----- Update Blog -----");
         int id = _dataGenerateService.GetEditBlogId();
         
-        DataTable data = new DataTable();
-        int result;
+        SqlParameter para = new SqlParameter("@BlogId", id);
         
-        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
+        DataTable data = _adoDotNetService.GetList(Query.SelectById, para);
+        if (data.Rows.Count == 0)
         {
-            SqlCommand command = new SqlCommand(Query.SelectById, connection);
-            command.Parameters.AddWithValue("@BlogId", id);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(data);
-
-            if (data.Rows.Count == 0)
-            {
-                Console.WriteLine("Blog Id does not exist.");
-                return;
-            }
-
-            Console.WriteLine("----- Blog Info -----");
-            _dataGenerateService.WriteDataList(new BlogModel()
-            {
-                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
-                BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
-                BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
-                BlogContent = data.Rows[0]["BlogContent"].ToString()!
-            });
-            
-            BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
-            
-            connection.Open();
-            SqlCommand cmd = new SqlCommand(Query.Update,connection);
-            cmd.Parameters.AddWithValue("@BlogId", id);
-            cmd.Parameters.AddWithValue("@BlogTitle", newBlog.BlogTitle);
-            cmd.Parameters.AddWithValue("@BlogAuthor", newBlog.BlogAuthor);
-            cmd.Parameters.AddWithValue("@BlogContent", newBlog.BlogContent);
-            
-            result = cmd.ExecuteNonQuery();
-            connection.Close();
+            Console.WriteLine("Blog Id does not exist.");
+            return;
         }
+
+        Console.WriteLine("----- Blog Info -----");
+        _dataGenerateService.WriteDataList(new BlogModel()
+        {
+            BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
+            BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
+            BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
+            BlogContent = data.Rows[0]["BlogContent"].ToString()!
+        });
+            
+        BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
         
+        List<SqlParameter> lstpara = new List<SqlParameter>();
+        lstpara.Add(new SqlParameter("@BlogId", id));
+        lstpara.Add(new SqlParameter("@BlogTitle", newBlog.BlogTitle));
+        lstpara.Add(new SqlParameter("@BlogAuthor", newBlog.BlogAuthor));
+        lstpara.Add(new SqlParameter("@BlogContent", newBlog.BlogContent));
+        
+        int result = _adoDotNetService.Execute(Query.Update, lstpara.ToArray());
+
         string message = result > 0 ? "---- Update Successful. ----" : "---- Update Fail! ----";
         Console.WriteLine(message);
     }
@@ -129,43 +97,33 @@ public class AdoDotNetExamples
         Console.WriteLine("----- Delete Blog -----");
         int id = _dataGenerateService.GetEditBlogId();
         
-        DataTable data = new DataTable();
-        int result;
-        
-        using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
-        {
-            SqlCommand command = new SqlCommand(Query.SelectById, connection);
-            command.Parameters.AddWithValue("@BlogId", id);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(data);
-            
-            if (data.Rows.Count == 0)
-            {
-                Console.WriteLine("Blog Id does not exist.");
-                return;
-            }
+        SqlParameter para = new SqlParameter("@BlogId", id);
 
-            Console.WriteLine("----- Blog Info -----");
-            _dataGenerateService.WriteDataList(new BlogModel()
-            {
-                BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
-                BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
-                BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
-                BlogContent = data.Rows[0]["BlogContent"].ToString()!
-            });
-            
-            if (!_dataGenerateService.ConfirmToDelete())
-            {
-                return;
-            }
-            
-            connection.Open();
-            SqlCommand cmd = new SqlCommand(Query.Delete,connection);
-            cmd.Parameters.AddWithValue("@BlogId", id);
-            
-            result = cmd.ExecuteNonQuery();
-            connection.Close();
+        DataTable data = _adoDotNetService.GetList(Query.SelectById, para);
+        if (data.Rows.Count == 0)
+        {
+            Console.WriteLine("Blog Id does not exist.");
+            return;
         }
+
+        Console.WriteLine("----- Blog Info -----");
+        _dataGenerateService.WriteDataList(new BlogModel()
+        {
+            BlogId = Convert.ToInt32(data.Rows[0]["BlogId"]),
+            BlogTitle = data.Rows[0]["BlogTitle"].ToString()!,
+            BlogAuthor = data.Rows[0]["BlogAuthor"].ToString()!,
+            BlogContent = data.Rows[0]["BlogContent"].ToString()!
+        });
+            
+        if (!_dataGenerateService.ConfirmToDelete())
+        {
+            return;
+        }
+
+        List<SqlParameter> lstpara = new List<SqlParameter>();
+        lstpara.Add(new SqlParameter("@BlogId", id));
+        
+        int result = _adoDotNetService.Execute(Query.Delete, lstpara.ToArray());
         
         string message = result > 0 ? "---- Delete Successful. ----" : "---- Delete Fail! ----";
         Console.WriteLine(message);
