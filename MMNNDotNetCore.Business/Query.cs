@@ -1,4 +1,4 @@
-﻿namespace MMNNDotNetCore.ConsoleApp;
+﻿namespace MMNNDotNetCore.Business;
 
 public class Query
 {

@@ -1,6 +1,4 @@
-﻿
-
-namespace MMNNDotNetCore.ConsoleApp.Service;
+﻿namespace MMNNDotNetCore.ConsoleApp.Service;
 
 public class DataGenerateService
 {

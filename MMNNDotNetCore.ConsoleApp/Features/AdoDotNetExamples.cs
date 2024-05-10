@@ -1,8 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using MMNNDotNetCore.ConsoleApp.Service;
-
-namespace MMNNDotNetCore.ConsoleApp.Features;
+﻿namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class AdoDotNetExamples
 {

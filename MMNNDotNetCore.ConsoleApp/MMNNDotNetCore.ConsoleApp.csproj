@@ -19,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\MMNNDotNetCore.Business\MMNNDotNetCore.Business.csproj" />
       <ProjectReference Include="..\MMNNDotNetCore.EFCore\MMNNDotNetCore.EFCore.csproj" />
       <ProjectReference Include="..\MMNNDotNetCore.Models\MMNNDotNetCore.Models.csproj" />
     </ItemGroup>
