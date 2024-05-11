@@ -1,17 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MMNNDotNetCore.Business.Service;
-using MMNNDotNetCore.EFCore.EfAppDbContext;
 
 namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class EfCoreExample
 {
     private DataGenerateService _dataGenerateService = new DataGenerateService();
-    private readonly EfAppDbContext _db = new EfAppDbContext();
     private readonly EFCoreDbService _efCoreDbService = new EFCoreDbService();
     public void SelectAll()
     {
-        List<BlogModel> lstBlog = _db.Blogs.ToList();
+        List<BlogModel> lstBlog = _efCoreDbService.GetList(new BlogModel());
         foreach (var item in lstBlog)
         {
             _dataGenerateService.WriteDataList(item);
@@ -22,21 +20,7 @@ public class EfCoreExample
     {
         BlogModel filter = _dataGenerateService.GetFiltersBlog();
 
-        List<BlogModel> lst = _db.Blogs.ToList();
-
-        if (filter.BlogId > 0)
-        {
-            lst = lst.Where(w => w.BlogId == filter.BlogId).ToList();
-        }
-        else if (!string.IsNullOrEmpty(filter.BlogTitle))
-        {
-            lst = lst.Where(w => w.BlogTitle == filter.BlogTitle).ToList();
-        }
-        else if (!string.IsNullOrEmpty(filter.BlogAuthor))
-        {
-            lst = lst.Where(w => w.BlogAuthor == filter.BlogAuthor).ToList();
-        }
-        
+        List<BlogModel> lst = _efCoreDbService.GetList(filter);
         foreach (var item in lst)
         {
             _dataGenerateService.WriteDataList(item);
@@ -48,8 +32,7 @@ public class EfCoreExample
         Console.WriteLine("----- Create Blog -----");
         BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
 
-        _db.Add(newBlog);
-        int result = _db.SaveChanges();
+        int result = _efCoreDbService.Create(newBlog);
         
         string message = result > 0 ? "---- Saving Successful. ----" : "---- Saving Fail! ----";
         Console.WriteLine(message);
@@ -60,8 +43,7 @@ public class EfCoreExample
         Console.WriteLine("----- Update Blog -----");
         int id = _dataGenerateService.GetEditBlogId();
 
-        BlogModel? item = _db.Blogs.AsNoTracking()
-            .FirstOrDefault(w => w.BlogId == id);
+        BlogModel? item = _efCoreDbService.GetById(id);
 
         if (item is null)
         {
@@ -72,11 +54,7 @@ public class EfCoreExample
         _dataGenerateService.WriteDataList(item);
         
         BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
-        item.BlogTitle = newBlog.BlogTitle;
-        item.BlogAuthor = newBlog.BlogAuthor;
-        item.BlogContent = newBlog.BlogContent;
-
-        int result = _db.SaveChanges();
+        int result = _efCoreDbService.Update(id, newBlog);        
         
         string message = result > 0 ? "---- Updating Successful. ----" : "---- Updating Fail! ----";
         Console.WriteLine(message);
@@ -87,8 +65,7 @@ public class EfCoreExample
         Console.WriteLine("----- Delete Blog -----");
         int id = _dataGenerateService.GetEditBlogId();
 
-        BlogModel? item = _db.Blogs.AsNoTracking()
-            .FirstOrDefault(w => w.BlogId == id);
+        BlogModel? item = _efCoreDbService.GetById(id);
 
         if (item is null)
         {
@@ -104,8 +81,7 @@ public class EfCoreExample
             return;
         }
 
-        _db.Remove(item);
-        int result = _db.SaveChanges();
+        int result = _efCoreDbService.Delete(id, item);
         
         string message = result > 0 ? "---- Delete Successful. ----" : "---- Delete Fail! ----";
         Console.WriteLine(message);
