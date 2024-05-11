@@ -1,6 +1,6 @@
 ﻿using SqlConnectionStringBuilder = System.Data.SqlClient.SqlConnectionStringBuilder;
 
-namespace MMNNDotNetCore.Business;
+namespace MMNNDotNetCore.EFCore;
 
 public static class ConnectionStrings
 {

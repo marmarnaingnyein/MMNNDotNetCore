@@ -1,4 +1,6 @@
-﻿namespace MMNNDotNetCore.ConsoleApp.Features;
+﻿using MMNNDotNetCore.Business.Service;
+
+namespace MMNNDotNetCore.ConsoleApp.Features;
 
 public class AdoDotNetExamples
 {

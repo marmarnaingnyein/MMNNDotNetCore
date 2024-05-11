@@ -1,4 +1,4 @@
-﻿namespace MMNNDotNetCore.Business;
+﻿namespace MMNNDotNetCore.Business.Service;
 
 public class AdoDotNetService
 {

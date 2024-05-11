@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MMNNDotNetCore.Business;
 using MMNNDotNetCore.Models;
 
 namespace MMNNDotNetCore.EFCore.EfAppDbContext;
