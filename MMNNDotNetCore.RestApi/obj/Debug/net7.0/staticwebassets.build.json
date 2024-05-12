@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "0ywywu9HXNLN7F3Rag9fg88GmIqYKkw2ovrhlabQTAU=",
+  "Hash": "oEHcXkYRsWZQcKqOajhkxIsT+/wWeiyyG7hy+N15uiw=",
   "Source": "MMNNDotNetCore.RestApi",
   "BasePath": "_content/MMNNDotNetCore.RestApi",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\MMNN\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.Models\\MMNNDotNetCore.Models.csproj",
+      "Version": 2,
+      "Source": "MMNNDotNetCore.Models",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }

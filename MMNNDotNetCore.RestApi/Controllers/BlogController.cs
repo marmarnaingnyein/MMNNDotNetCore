@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.DataProtection.Internal;
 using Microsoft.AspNetCore.Mvc;
+using MMNNDotNetCore.Business.Service;
+using MMNNDotNetCore.Models;
 
 namespace MMNNDotNetCore.RestApi.Controllers;
 
@@ -7,10 +9,18 @@ namespace MMNNDotNetCore.RestApi.Controllers;
 [ApiController]
 public class BlogController : ControllerBase
 {
+    private readonly EFCoreDbService _service;
+
+    public BlogController(EFCoreDbService service)
+    {
+        _service = service;
+    }
+
     [HttpGet]
     public IActionResult GetList()
     {
-        return Ok();
+        List<BlogModel> lst = _service.GetList(new BlogModel());
+        return Ok(lst);
     }
     
     [HttpPost]

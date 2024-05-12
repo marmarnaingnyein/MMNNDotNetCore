@@ -1,6 +1,11 @@
+using MMNNDotNetCore.Business.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<AdoDotNetService>();
+builder.Services.AddScoped<DapperService>();
+builder.Services.AddScoped<EFCoreDbService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
