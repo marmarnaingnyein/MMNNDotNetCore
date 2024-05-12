@@ -54,9 +54,11 @@ public class EfCoreExample
         _dataGenerateService.WriteDataList(item);
         
         BlogModel newBlog = _dataGenerateService.GetUserInputBlog();
-        int result = _efCoreDbService.Update(id, newBlog);        
+        newBlog.BlogId = item.BlogId;
         
+        int result = _efCoreDbService.Update(newBlog);        
         string message = result > 0 ? "---- Updating Successful. ----" : "---- Updating Fail! ----";
+        
         Console.WriteLine(message);
     }
 
@@ -81,7 +83,7 @@ public class EfCoreExample
             return;
         }
 
-        int result = _efCoreDbService.Delete(id, item);
+        int result = _efCoreDbService.Delete(item);
         
         string message = result > 0 ? "---- Delete Successful. ----" : "---- Delete Fail! ----";
         Console.WriteLine(message);

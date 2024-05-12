@@ -42,17 +42,17 @@ public class EFCoreDbService
         return _db.SaveChanges();
     }
 
-    public int Update(int id, BlogModel newBlog)
+    public int Update(BlogModel model)
     {
-        BlogModel? item = GetById(id);
-        item!.BlogTitle = newBlog.BlogTitle;
-        item.BlogAuthor = newBlog.BlogAuthor;
-        item.BlogContent = newBlog.BlogContent;
+        BlogModel? item = GetById(model.BlogId);
+        item!.BlogTitle = model.BlogTitle;
+        item.BlogAuthor = model.BlogAuthor;
+        item.BlogContent = model.BlogContent;
 
         return _db.SaveChanges();
     }
 
-    public int Delete(int id, BlogModel item)
+    public int Delete(BlogModel item)
     {
         _db.Remove(item);
         return _db.SaveChanges();
