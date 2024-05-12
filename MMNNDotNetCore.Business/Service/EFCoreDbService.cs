@@ -44,8 +44,8 @@ public class EFCoreDbService
 
     public int Update(int id, BlogModel newBlog)
     {
-        BlogModel item = GetById(id);
-        item.BlogTitle = newBlog.BlogTitle;
+        BlogModel? item = GetById(id);
+        item!.BlogTitle = newBlog.BlogTitle;
         item.BlogAuthor = newBlog.BlogAuthor;
         item.BlogContent = newBlog.BlogContent;
 
