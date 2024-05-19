@@ -1,10 +1,18 @@
-﻿namespace MMNNDotNetCore.Business.Service;
+﻿using Microsoft.IdentityModel.Tokens;
+using MMNNDotNetCore.Shared;
+
+namespace MMNNDotNetCore.Business.Service;
 
 public class AdoDotNetService
 {
     public DataTable GetList(string query)
     {
         DataTable data = new DataTable();
+
+        if (query.IsNullOrEmpty())
+        {
+            return data;
+        }
 
         using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
@@ -20,6 +28,11 @@ public class AdoDotNetService
     {
         DataTable data = new DataTable();
 
+        if (DevCode.IsNull(query))
+        {
+            return data;
+        }
+
         using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             SqlCommand command = new SqlCommand(query, connection);
@@ -34,6 +47,12 @@ public class AdoDotNetService
     public int Execute(string query, SqlParameter[] lstPara)
     {
         int result;
+        
+        if (query.IsNullOrEmpty())
+        {
+            return 0;
+        }
+
         using (SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString))
         {
             SqlCommand command = new SqlCommand(query, connection);

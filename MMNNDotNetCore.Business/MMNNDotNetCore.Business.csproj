@@ -20,6 +20,7 @@
     <ItemGroup>
         <ProjectReference Include="..\MMNNDotNetCore.EFCore\MMNNDotNetCore.EFCore.csproj" />
         <ProjectReference Include="..\MMNNDotNetCore.Models\MMNNDotNetCore.Models.csproj" />
+        <ProjectReference Include="..\MMNNDotNetCore.Shared\MMNNDotNetCore.Shared.csproj" />
     </ItemGroup>
 
 </Project>
