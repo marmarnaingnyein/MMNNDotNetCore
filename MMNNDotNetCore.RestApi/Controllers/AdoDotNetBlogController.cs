@@ -1,6 +1,6 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using MMNNDotNetCore.Business;
 using MMNNDotNetCore.Business.Service;
 using MMNNDotNetCore.Models;
@@ -91,8 +91,16 @@ public class AdoDotNetBlogController : Controller
         {
             return Ok(validate);
         }
+
+        SqlParameter[] lstpara = new[]
+        {
+            new SqlParameter("@BlogTitle", model.BlogTitle),
+            new SqlParameter("@BlogAuthor", model.BlogAuthor),
+            new SqlParameter("@BlogContent", model.BlogContent)
+        };
         
-        int result = _service.Execute(Query.Create, model);
+        int result = _service.Execute(Query.Create, lstpara);
+
         string message = result > 0 ? "Create Success." : "Create Fail!";
         
         return Ok(message);
@@ -107,13 +115,23 @@ public class AdoDotNetBlogController : Controller
             return Ok(validate);
         }
         
-        BlogModel? item = _service.GetFirstById<BlogModel>(Query.SelectById, model);
-        if (item is null)
+        SqlParameter para = new SqlParameter("@BlogId", model.BlogId);
+        
+        DataTable data = _service.GetList(Query.SelectById, para);
+        if (data.Rows.Count == 0)
         {
             return Ok("Data not found!");
         }
         
-        int result = _service.Execute(Query.Update, model);
+        SqlParameter[] lstpara = new[]
+        {
+            new SqlParameter("@BlogTitle", model.BlogTitle),
+            new SqlParameter("@BlogAuthor", model.BlogAuthor),
+            new SqlParameter("@BlogContent", model.BlogContent)
+        };
+        
+        int result = _service.Execute(Query.Update, lstpara);
+
         string message = result > 0 ? "Update Success." : "Update Fail!";
         return Ok(message);
     }
@@ -121,26 +139,31 @@ public class AdoDotNetBlogController : Controller
     [HttpPatch]
     public IActionResult Patch(BlogModel model)
     {
-        BlogModel? item = _service.GetFirstById<BlogModel>(Query.SelectById, model);
-        if (item is null)
+        SqlParameter para = new SqlParameter("@BlogId", model.BlogId);
+        
+        DataTable data = _service.GetList(Query.SelectById, para);
+        if (data.Rows.Count == 0)
         {
             return Ok("Data not found!");
         }
+        
+        List<SqlParameter> lstpara = new List<SqlParameter>();
+        lstpara.Add(new SqlParameter("@BlogId", model.BlogId));
 
         if (!string.IsNullOrEmpty(model.BlogTitle))
         {
-            item.BlogTitle = model.BlogTitle;
+            lstpara.Add(new SqlParameter("@BlogTitle", model.BlogTitle));
         }
         if (!string.IsNullOrEmpty(model.BlogAuthor))
         {
-            item.BlogAuthor = model.BlogAuthor;
+            lstpara.Add(new SqlParameter("@BlogAuthor", model.BlogAuthor));
         }
         if (!string.IsNullOrEmpty(model.BlogContent))
         {
-            item.BlogContent = model.BlogContent;
+            lstpara.Add(new SqlParameter("@BlogContent", model.BlogContent));
         }
         
-        int result = _service.Execute(Query.Update, model);
+        int result = _service.Execute(Query.Update, lstpara.ToArray());
         string message = result > 0 ? "Update Success." : "Update Fail!";
         return Ok(message);
     }
@@ -148,14 +171,19 @@ public class AdoDotNetBlogController : Controller
     [HttpDelete]
     public IActionResult Delete(int id)
     {
-        BlogModel? item = _service.GetFirstById<BlogModel>(Query.SelectById, 
-            new BlogModel{BlogId = id });
-        if (item is null)
+        SqlParameter para = new SqlParameter("@BlogId", id);
+        
+        DataTable data = _service.GetList(Query.SelectById, para);
+        if (data.Rows.Count == 0)
         {
             return Ok("Data not found!");
         }
 
-        int result = _service.Execute(Query.Delete, item);
+        List<SqlParameter> lstpara = new List<SqlParameter>();
+        lstpara.Add(new SqlParameter("@BlogId", id));
+        
+        int result = _service.Execute(Query.Delete, lstpara.ToArray());
+
         string message = result > 0 ? "Delete Success." : "Delete Fail!";
         return Ok(message);
     }
