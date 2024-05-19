@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using MMNNDotNetCore.Business;
 using MMNNDotNetCore.Business.Service;
 using MMNNDotNetCore.Models;
@@ -43,26 +44,42 @@ public class AdoDotNetBlogController : Controller
     [Route("selectBy")]
     public IActionResult GetList(BlogModel? filter)
     {
+        List<BlogModel> lst = new List<BlogModel>();
+
         if (filter is null)
         {
             return Ok("Filter is required.");
         }
-        
+        SqlParameter para = new SqlParameter();
         string query = Query.Select;
         if (filter.BlogId > 0)
         {
             query += " Where BlogId = @BlogId";
+            para = new SqlParameter("@BlogId", filter.BlogId);
         }
         else if (!string.IsNullOrEmpty(filter.BlogTitle))
         {
             query += " Where BlogTitle = @BlogTitle";
+            para = new SqlParameter("@BlogTitle", filter.BlogTitle);
         }
         else if (!string.IsNullOrEmpty(filter.BlogAuthor))
         {
             query += " Where BlogAuthor = @BlogAuthor";
+            para = new SqlParameter("@BlogAuthor", filter.BlogAuthor);
         }
 
-        List<BlogModel> lst = _service.GetList<BlogModel>(query, filter);
+        DataTable data = _service.GetList(query, para);
+        
+        foreach (DataRow item in data.Rows)
+        {
+            lst.Add(new BlogModel()
+            {
+                BlogId = Convert.ToInt32(item["BlogId"]),
+                BlogTitle = item["BlogTitle"].ToString()!,
+                BlogAuthor = item["BlogAuthor"].ToString()!,
+                BlogContent = item["BlogContent"].ToString()!
+            });
+        }
         return Ok(lst);
     }
     
