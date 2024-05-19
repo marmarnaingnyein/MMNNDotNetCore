@@ -6,6 +6,8 @@ using MMNNDotNetCore.RestApi.Service;
 
 namespace MMNNDotNetCore.RestApi.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 public class DapperBlogController : Controller
 {
     private readonly DapperService _service;
