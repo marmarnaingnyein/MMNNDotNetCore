@@ -15,4 +15,8 @@
       <Folder Include="Features\User\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MMNNDotNetCore.EFCore\MMNNDotNetCore.EFCore.csproj" />
+    </ItemGroup>
+
 </Project>
