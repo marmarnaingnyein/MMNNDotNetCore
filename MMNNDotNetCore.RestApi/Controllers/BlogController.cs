@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.DataProtection.Internal;
-using Microsoft.AspNetCore.Mvc;
-using MMNNDotNetCore.Business.Service;
-using MMNNDotNetCore.Models;
-using MMNNDotNetCore.RestApi.Service;
-
-namespace MMNNDotNetCore.RestApi.Controllers;
+﻿namespace MMNNDotNetCore.RestApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

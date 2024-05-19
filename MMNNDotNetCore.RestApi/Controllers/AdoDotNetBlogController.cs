@@ -1,12 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
-using MMNNDotNetCore.Business;
-using MMNNDotNetCore.Business.Service;
-using MMNNDotNetCore.Models;
-using MMNNDotNetCore.RestApi.Service;
-
-namespace MMNNDotNetCore.RestApi.Controllers;
+﻿namespace MMNNDotNetCore.RestApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
