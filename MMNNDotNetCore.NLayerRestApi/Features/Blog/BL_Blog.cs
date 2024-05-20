@@ -79,9 +79,57 @@ public class BL_Blog
         
         int result = _daBlog.Create(reqModel);
         
+        model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Create Success.") :
+            new ResponseModel(EnumResType.Fail, "Create Fail.");
+        
+        return model;
+    }
+    
+    public BlogResponseModel Update(BlogModel reqModel)
+    {
+        BlogResponseModel model = new BlogResponseModel();
+        if (reqModel.BlogId <= 0)
+        {
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Id is required.");
+            return model;
+        }
+
+        BlogModel? item = _daBlog.GetById(reqModel.BlogId);
+        if (item == null)
+        {
+            model.Response = new ResponseModel(EnumResType.Fail,"Data not Found.");
+            return model;
+        }
+        
+        if (string.IsNullOrEmpty(reqModel.BlogTitle))
+        {
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Title is required.");
+            return model;
+        }
+
+        if (string.IsNullOrEmpty(reqModel.BlogAuthor))
+        {
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Author is required.");
+            return model;
+        }
+        if (string.IsNullOrEmpty(reqModel.BlogContent))
+        {
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Author is required.");
+            return model;
+        }
+        
+        if (string.IsNullOrEmpty(reqModel.BlogContent))
+        {
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Content is required.");
+            return model;
+        }
+        
+        int result = _daBlog.Update(reqModel);
+        
         model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Delete Success.") :
             new ResponseModel(EnumResType.Fail, "Delete Fail.");
         
         return model;
     }
+    
 }
