@@ -126,10 +126,33 @@ public class BL_Blog
         
         int result = _daBlog.Update(reqModel);
         
+        model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Update Success.") :
+            new ResponseModel(EnumResType.Fail, "Update Fail.");
+        
+        return model;
+    }
+    public BlogResponseModel Delete(int id)
+    {
+        BlogResponseModel model = new BlogResponseModel();
+        if (id <= 0)
+        {
+            model.Response = new ResponseModel(EnumResType.Fail, "Id is required.");
+            return model;
+        }
+
+        BlogModel? item = _daBlog.GetById(id);
+        if (item == null)
+        {
+            model.Response = new ResponseModel(EnumResType.Fail,"Data not Found.");
+            return model;
+        }
+
+        int result = _daBlog.Delete(item);
+        
         model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Delete Success.") :
             new ResponseModel(EnumResType.Fail, "Delete Fail.");
         
         return model;
+        return model;
     }
-    
 }
