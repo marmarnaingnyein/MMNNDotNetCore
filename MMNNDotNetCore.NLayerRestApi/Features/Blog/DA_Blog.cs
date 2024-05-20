@@ -32,11 +32,7 @@ public class DA_Blog
 
     public int Update(BlogModel model)
     {
-        BlogModel? item = GetById(model.BlogId);
-        item!.BlogTitle = model.BlogTitle;
-        item.BlogAuthor = model.BlogAuthor;
-        item.BlogContent = model.BlogContent;
-
+        _db.Update(model);
         return _db.SaveChanges();
     }
 

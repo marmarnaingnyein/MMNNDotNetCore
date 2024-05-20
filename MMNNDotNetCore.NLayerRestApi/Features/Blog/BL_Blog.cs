@@ -101,17 +101,16 @@ public class BL_Blog
             return model;
         }
         
-        if (string.IsNullOrEmpty(reqModel.BlogTitle))
+        if (!string.IsNullOrEmpty(reqModel.BlogTitle))
         {
-            model.Response = new ResponseModel(EnumResType.Fail, "Blog Title is required.");
-            return model;
+            item.BlogTitle = reqModel.BlogTitle;
         }
 
-        if (string.IsNullOrEmpty(reqModel.BlogAuthor))
+        if (!string.IsNullOrEmpty(reqModel.BlogAuthor))
         {
-            model.Response = new ResponseModel(EnumResType.Fail, "Blog Author is required.");
-            return model;
+            item.BlogAuthor = reqModel.BlogAuthor;
         }
+        
         if (string.IsNullOrEmpty(reqModel.BlogContent))
         {
             model.Response = new ResponseModel(EnumResType.Fail, "Blog Author is required.");
@@ -120,17 +119,17 @@ public class BL_Blog
         
         if (string.IsNullOrEmpty(reqModel.BlogContent))
         {
-            model.Response = new ResponseModel(EnumResType.Fail, "Blog Content is required.");
-            return model;
+            item.BlogContent = reqModel.BlogContent;
         }
         
-        int result = _daBlog.Update(reqModel);
+        int result = _daBlog.Update(item);
         
         model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Update Success.") :
             new ResponseModel(EnumResType.Fail, "Update Fail.");
         
         return model;
     }
+    
     public BlogResponseModel Delete(int id)
     {
         BlogResponseModel model = new BlogResponseModel();
@@ -152,7 +151,6 @@ public class BL_Blog
         model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Delete Success.") :
             new ResponseModel(EnumResType.Fail, "Delete Fail.");
         
-        return model;
         return model;
     }
 }
