@@ -2,12 +2,19 @@
 
 public class BaseResponseModel
 {
-    public ResponseModel Response { get; set; } = new ResponseModel();
+    public ResponseModel Response { get; set; }
+
     
 }
 
 public class ResponseModel
 {
+    public ResponseModel(EnumResType resType, string message)
+    {
+        ResType = resType;
+        ResMessage = message;
+    }
+    
     public bool IsSuccess
     {
         get

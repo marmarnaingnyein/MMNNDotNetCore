@@ -35,31 +35,19 @@ public class BL_Blog
         BlogResponseModel model = new BlogResponseModel();
         if (id <= 0)
         {
-            model.Response = new ResponseModel()
-            {
-                ResType = EnumResType.Fail,
-                ResMessage = "Id is required."
-            };
+            model.Response = new ResponseModel(EnumResType.Fail, "Id is required.");
             return model;
         }
 
         BlogModel? item = _daBlog.GetById(id);
         if (item == null)
         {
-            model.Response = new ResponseModel()
-            {
-                ResType = EnumResType.Fail,
-                ResMessage = "Data not Found."
-            };
+            model.Response = new ResponseModel(EnumResType.Fail,"Data not Found.");
             return model;
         }
 
         model.ResData = item;
-        model.Response = new ResponseModel()
-        {
-            ResType = EnumResType.Success,
-            ResMessage = "Success."
-        };
+        model.Response = new ResponseModel(EnumResType.Success, "Success.");
         return model;
     }
 
@@ -68,51 +56,32 @@ public class BL_Blog
         BlogResponseModel model = new BlogResponseModel();
         if (string.IsNullOrEmpty(reqModel.BlogTitle))
         {
-            model.Response = new ResponseModel()
-            {
-                ResType = EnumResType.Fail,
-                ResMessage = "Blog Title is required."
-            };
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Title is required.");
             return model;
         }
 
         if (string.IsNullOrEmpty(reqModel.BlogAuthor))
         {
-            model.Response = new ResponseModel()
-            {
-                ResType = EnumResType.Fail,
-                ResMessage = "Blog Author is required."
-            };
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Author is required.");
             return model;
         }
         if (string.IsNullOrEmpty(reqModel.BlogContent))
         {
-            model.Response = new ResponseModel()
-            {
-                ResType = EnumResType.Fail,
-                ResMessage = "Blog Author is required."
-            };
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Author is required.");
             return model;
         }
         
         if (string.IsNullOrEmpty(reqModel.BlogContent))
         {
-            model.Response = new ResponseModel()
-            {
-                ResType = EnumResType.Fail,
-                ResMessage = "Blog Content is required."
-            };
+            model.Response = new ResponseModel(EnumResType.Fail, "Blog Content is required.");
             return model;
         }
         
         int result = _daBlog.Create(reqModel);
-        string message = result > 0 ? "Delete Success." : "Delete Fail!";
         
-        model.Response = new ResponseModel()
-        {
-            ResType = EnumResType.Fail,
-            ResMessage = "Delete Success."
-        };
+        model.Response = result > 0 ? new ResponseModel(EnumResType.Success, "Delete Success.") :
+            new ResponseModel(EnumResType.Fail, "Delete Fail.");
+        
         return model;
     }
 }
