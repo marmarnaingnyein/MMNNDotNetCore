@@ -23,6 +23,14 @@ public class ResponseModel
         }
     }
 
+    public bool IsError
+    {
+        get
+        {
+            return ResType == EnumResType.Fail;
+        }
+    }
+
     public EnumResType ResType{get;set;}
     public string ResMessage { get; set; }
     
