@@ -12,11 +12,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\User\" />
+      <ProjectReference Include="..\MMNNDotNetCore.EFCore\MMNNDotNetCore.EFCore.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MMNNDotNetCore.EFCore\MMNNDotNetCore.EFCore.csproj" />
+      <None Include="data.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

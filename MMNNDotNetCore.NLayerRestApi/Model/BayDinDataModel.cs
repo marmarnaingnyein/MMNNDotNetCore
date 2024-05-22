@@ -1,20 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace MMNNDotNetCore.NLayerRestApi.Model;
 
-using Newtonsoft.Json;
-
-Console.WriteLine("Hello, World!");
-
-string jsonData = await File.ReadAllTextAsync("data.json");
-MainDto? model = JsonConvert.DeserializeObject<MainDto>(jsonData);
-
-foreach (var item in model!.questions)
-{
-    Console.WriteLine(item.questionNo);
-}
-
-Console.ReadLine();
-
-public class MainDto
+public class BayDinDataModel
 {
     public Questions[] questions { get; set; }
     public Answers[] answers { get; set; }
@@ -33,4 +19,3 @@ public class Answers
     public int answerNo { get; set; }
     public string answerResult { get; set; }
 }
-
