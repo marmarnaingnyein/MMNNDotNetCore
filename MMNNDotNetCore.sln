@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMNNDotNetCore.Shared", "MM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMNNDotNetCore.NLayerRestApi", "MMNNDotNetCore.NLayerRestApi\MMNNDotNetCore.NLayerRestApi.csproj", "{2AD70C47-5975-4474-89ED-3B2FF5646885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMNNDotNetCore.ConsoleAppHttpClient", "MMNNDotNetCore.ConsoleAppHttpClient\MMNNDotNetCore.ConsoleAppHttpClient.csproj", "{072F4C36-A316-4B2C-9625-134D898A9B08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{2AD70C47-5975-4474-89ED-3B2FF5646885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AD70C47-5975-4474-89ED-3B2FF5646885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AD70C47-5975-4474-89ED-3B2FF5646885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{072F4C36-A316-4B2C-9625-134D898A9B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072F4C36-A316-4B2C-9625-134D898A9B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072F4C36-A316-4B2C-9625-134D898A9B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072F4C36-A316-4B2C-9625-134D898A9B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CFA19737-9A42-4D32-9CCF-448B9FB9E198} = {6F4EE862-1B78-466C-8C79-61CA9A844381}
