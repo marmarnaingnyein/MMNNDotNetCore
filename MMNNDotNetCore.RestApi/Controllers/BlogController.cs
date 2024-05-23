@@ -93,7 +93,7 @@ public class BlogController : ControllerBase
         return Ok(message);
     }
     
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
         BlogModel? item = _service.GetById(id);

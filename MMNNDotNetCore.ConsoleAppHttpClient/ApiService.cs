@@ -29,7 +29,7 @@ public class ApiService
         BlogModel filter = new BlogModel() { BlogId = id };
         HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(filter), Encoding.UTF8,
             MediaTypeNames.Application.Json);
-        var response = await _client.PostAsync(_blogEndPoint, httpContent);
+        var response = await _client.PostAsync($"{_blogEndPoint}/selectBy", httpContent);
         if (response.IsSuccessStatusCode)
         {
             string jsonStr = await response.Content.ReadAsStringAsync();
@@ -37,5 +37,30 @@ public class ApiService
         }
 
         return model;
+    }
+
+    public async Task<string> Create(BlogModel reqModel)
+    {
+        HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(reqModel), Encoding.UTF8,
+            MediaTypeNames.Application.Json);
+        var response = await _client.PostAsync(_blogEndPoint, httpContent);
+        string resMsg = await response.Content.ReadAsStringAsync();
+        return resMsg;
+    }
+    
+    public async Task<string> Update(BlogModel reqModel)
+    {
+        HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(reqModel), Encoding.UTF8,
+            MediaTypeNames.Application.Json);
+        var response = await _client.PutAsync(_blogEndPoint, httpContent);
+        string resMsg = await response.Content.ReadAsStringAsync();
+        return resMsg;
+    }
+    
+    public async Task<string> Delete(int id)
+    {
+        var response = await _client.DeleteAsync($"{_blogEndPoint}/{id}");
+        string resMsg = await response.Content.ReadAsStringAsync();
+        return resMsg;
     }
 }

@@ -10,6 +10,9 @@ public class HttpClientExamples
     {
         await GetList();
         await GetById(1);
+        await Create("Habbit", "MM", "Habbit is daily task");
+        await Update(3, "Sleeping", "Phyo", "I can sleep the whole day.");
+        await Delete(3);
     }
     
     public async Task GetList()
@@ -31,6 +34,39 @@ public class HttpClientExamples
         }
         
         Console.WriteLine(item);
+    }
+
+    public async Task Create(string title, string author, string content)
+    {
+        BlogModel model = new BlogModel()
+        {
+            BlogTitle = title,
+            BlogAuthor = author,
+            BlogContent = content
+        };
+
+        string res = await _apiService.Create(model);
+        Console.WriteLine(res);
+    }
+    
+    public async Task Update(int id, string title, string author, string content)
+    {
+        BlogModel model = new BlogModel()
+        {
+            BlogId = id,
+            BlogTitle = title,
+            BlogAuthor = author,
+            BlogContent = content
+        };
+
+        string res = await _apiService.Update(model);
+        Console.WriteLine(res);
+    }
+
+    public async Task Delete(int id)
+    {
+        var res = await _apiService.Delete(id);
+        Console.WriteLine(res);
     }
 
     private void WriteData(BlogModel item)
