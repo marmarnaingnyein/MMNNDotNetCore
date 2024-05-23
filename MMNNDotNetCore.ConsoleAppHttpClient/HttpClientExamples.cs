@@ -5,6 +5,12 @@ namespace MMNNDotNetCore.ConsoleAppHttpClient;
 public class HttpClientExamples
 {
     private readonly ApiService _apiService = new ApiService();
+
+    public async Task RunAsnc()
+    {
+        await GetList();
+    }
+    
     public async Task GetList()
     {
         List<BlogModel> lst = await _apiService.GetBlogList();
@@ -17,4 +23,6 @@ public class HttpClientExamples
             Console.WriteLine("===============================");
         }
     }
+    
+    
 }
