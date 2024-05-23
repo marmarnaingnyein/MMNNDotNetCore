@@ -10,5 +10,10 @@ if (response.IsSuccessStatusCode)
     foreach (var item in lst)
     {
         Console.WriteLine(JsonConvert.SerializeObject(item));
+        Console.WriteLine($"Blog Id : {item.BlogId}");
+        Console.WriteLine($"Blog Title : {item.BlogTitle}");
+        Console.WriteLine($"Blog Author : {item.BlogAuthor}");
+        Console.WriteLine($"Blog Content : {item.BlogContent}");
+        Console.WriteLine("===============================");
     }
 }
