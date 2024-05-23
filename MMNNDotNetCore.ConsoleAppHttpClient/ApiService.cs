@@ -1,4 +1,6 @@
-﻿using MMNNDotNetCore.Models;
+﻿using System.Net.Mime;
+using System.Text;
+using MMNNDotNetCore.Models;
 using Newtonsoft.Json;
 
 namespace MMNNDotNetCore.ConsoleAppHttpClient;
@@ -20,6 +22,20 @@ public class ApiService
 
         return lst;
     }
-    
-    
+
+    public async Task<BlogModel?> SelectById(int id)
+    {
+        BlogModel? model = null;
+        BlogModel filter = new BlogModel() { BlogId = id };
+        HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(filter), Encoding.UTF8,
+            MediaTypeNames.Application.Json);
+        var response = await _client.PostAsync(_blogEndPoint, httpContent);
+        if (response.IsSuccessStatusCode)
+        {
+            string jsonStr = await response.Content.ReadAsStringAsync();
+            model = JsonConvert.DeserializeObject<BlogModel>(jsonStr)!;
+        }
+
+        return model;
+    }
 }
