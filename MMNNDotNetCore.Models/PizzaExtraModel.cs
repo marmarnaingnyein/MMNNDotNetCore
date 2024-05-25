@@ -8,9 +8,9 @@ public class PizzaExtraModel
 {
     [Key]
     [Column("PizzaExtraId")]
-    public int PizzaId { get; set; }
+    public int PizzaExtraId { get; set; }
     [Column("PizzaExtraName")]
-    public string Name { get; set; }
+    public string ExtraName { get; set; }
     [Column("Price")]
     public decimal Price { get; set; }
 }
