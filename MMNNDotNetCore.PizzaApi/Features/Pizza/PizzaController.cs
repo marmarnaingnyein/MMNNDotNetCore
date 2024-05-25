@@ -81,4 +81,26 @@ public class PizzaController : Controller
 
         return Ok(model);
     }
+
+    [HttpGet("Order/{invoiceNo}")]
+    public async Task<IActionResult> GetOrder(string invoiceNo)
+    {
+        OrderDetailModel model = await _db.PizzaOrders.AsNoTracking()
+            .Where(w => w.PizzaOrderInvoiceNo == invoiceNo)
+            .Select(s => new OrderDetailModel()
+            {
+                InvoiceNo = s.PizzaOrderInvoiceNo,
+                PizzaName = _db.Pizzas.Where(p => p.PizzaId == s.PizzaId).Select(z => z.Name).FirstOrDefault(),
+                TotalAmount = s.TotalAmount
+            }).FirstOrDefaultAsync();
+
+        List<int> lstExtraId = await _db.PizzaOrderDetails.AsNoTracking()
+            .Where(w => w.PizzaOrderInvoiceNo == invoiceNo)
+            .Select(s => s.PizzaExtraId).ToListAsync();
+        model.ExtraNameList = await _db.PizzaExtras.AsNoTracking()
+            .Where(w => lstExtraId.Contains(w.PizzaExtraId))
+            .Select(s => s.ExtraName).ToListAsync();
+
+        return Ok(model);
+    }
 }
