@@ -3,19 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MMNNDotNetCore.Models;
 
-[Table("Tbl_Pizza")]
-public class PizzaModel
+[Table("Tbl_PizzaExtra")]
+public class PizzaExtraModel
 {
     [Key]
-    [Column("PizzaId")]
+    [Column("PizzaExtraId")]
     public int PizzaId { get; set; }
-    [Column("Pizza")]
+    [Column("PizzaExtraName")]
     public string Name { get; set; }
     [Column("Price")]
     public decimal Price { get; set; }
-    [NotMapped]
-    public string PriceStr
-    {
-        get { return $"${Price}"; }
-    }
 }

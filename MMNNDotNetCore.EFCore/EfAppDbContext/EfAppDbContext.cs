@@ -13,4 +13,5 @@ public class EfAppDbContext : DbContext
     public DbSet<BlogModel> Blogs { get; set; }
     
     public DbSet<PizzaModel> Pizzas { get; set; }
+    public DbSet<PizzaExtraModel> PizzaExtras { get; set; }
 }
