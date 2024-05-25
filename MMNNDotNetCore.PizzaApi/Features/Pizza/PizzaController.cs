@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using MMNNDotNetCore.Business;
+using MMNNDotNetCore.Business.Service;
 using MMNNDotNetCore.EFCore.EfAppDbContext;
 using MMNNDotNetCore.Models;
 using MMNNDotNetCore.PizzaApi.Models;
@@ -12,10 +14,12 @@ namespace MMNNDotNetCore.PizzaApi.Features.Pizza;
 public class PizzaController : Controller
 {
     private readonly EfAppDbContext _db;
+    private readonly DapperService _dapperService;
 
     public PizzaController()
     {
         _db = new EfAppDbContext();
+        _dapperService = new DapperService();
     }
 
     [HttpGet]
@@ -100,6 +104,31 @@ public class PizzaController : Controller
         model.ExtraNameList = await _db.PizzaExtras.AsNoTracking()
             .Where(w => lstExtraId.Contains(w.PizzaExtraId))
             .Select(s => s.ExtraName).ToListAsync();
+
+        return Ok(model);
+    }
+    
+    
+    [HttpGet("OrderDetail/{invoiceNo}")]
+    public async Task<IActionResult> GetOrderDetail(string invoiceNo)
+    {
+        var item = _dapperService.GetFirstById<PizzaOrderInvoiceHeadModel>
+        (
+            Query.PizzaOrderQuery,
+            new { PizzaOrderInvoiceNo = invoiceNo }
+        );
+
+        var lst = _dapperService.GetList<PizzaOrderInvoiceDetailModel>
+        (
+            Query.PizzaOrderDetailQuery,
+            new { PizzaOrderInvoiceNo = invoiceNo }
+        );
+
+        var model = new PizzaOrderInvoiceResponse
+        {
+            Order = item,
+            OrderDetail = lst
+        };
 
         return Ok(model);
     }
