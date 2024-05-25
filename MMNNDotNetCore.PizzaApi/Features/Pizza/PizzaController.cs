@@ -7,7 +7,7 @@ using MMNNDotNetCore.PizzaApi.Models;
 
 namespace MMNNDotNetCore.PizzaApi.Features.Pizza;
 
-[Route("api/{controller}")]
+[Route("api/[controller]")]
 [ApiController]
 public class PizzaController : Controller
 {

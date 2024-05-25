@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MMNNDotNetCore.NLayerRestApi.Features.MyanmarProverbs;
 
-[Route("api/{controller}")]
+[Route("api/[controller]")]
 [ApiController]
 public class MyanmarProverbsController : Controller
 {
