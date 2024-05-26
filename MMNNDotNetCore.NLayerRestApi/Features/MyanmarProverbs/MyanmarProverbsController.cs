@@ -32,6 +32,7 @@ public class MyanmarProverbsController : Controller
         return Ok(detail);
     }
 
+    [HttpGet("{titleId}/{proverbId}")]
     public async Task<IActionResult> Get(int titleId, int proverbId)
     {
         MyanmarProverbsModel model = await GetApiData();

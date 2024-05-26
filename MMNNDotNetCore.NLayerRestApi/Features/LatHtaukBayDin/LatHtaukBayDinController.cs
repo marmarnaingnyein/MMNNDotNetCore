@@ -8,20 +8,20 @@ namespace MMNNDotNetCore.NLayerRestApi.Features.LatHtaukBayDin;
 [ApiController]
 public class LatHtaukBayDinController : ControllerBase
 {
-    [HttpGet("GetQuestions")]
+    [HttpGet("questions")]
     public async Task<IActionResult> Questions()
     {
         BayDinDataModel? model = await GetData();
         return Ok(model!.questions);
     }
     
-    [HttpGet("GetNumbers")]
+    [HttpGet("numberList")]
     public async Task<IActionResult> NumberList()
     {
         BayDinDataModel? model = await GetData();
         return Ok(model!.numberList);
     }
-
+    
     [HttpGet("{questionNo}/{no}")]
     public async Task<IActionResult> Answer(int questionNo, int no)
     {

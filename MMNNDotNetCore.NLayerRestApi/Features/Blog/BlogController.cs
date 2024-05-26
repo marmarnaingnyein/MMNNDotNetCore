@@ -22,31 +22,31 @@ public class BlogController : Controller
         return Ok(lst);
     }
     
-    [HttpPost]
-    [Route("selectBy")]
-    public IActionResult GetList(BlogModel? filter)
-    {
-        if (filter is null)
-        {
-            return Ok("Filter is required.");
-        }
-        List<BlogModel> lst = _blogBl.GetList(filter);
-        return Ok(lst);
-    }
-    
-    
-    [HttpPost]
-    [Route("selectById")]
-    public IActionResult SelectById(int id)
-    {
-        BlogResponseModel res = _blogBl.GetById(id);
-        if (res.Response.IsError)
-        {
-            return Ok($"{res.Response.ResMessage}");
-        }
-        
-        return Ok(res.ResData);
-    }
+    // [HttpPost]
+    // [Route("selectBy")]
+    // public IActionResult GetList(BlogModel? filter)
+    // {
+    //     if (filter is null)
+    //     {
+    //         return Ok("Filter is required.");
+    //     }
+    //     List<BlogModel> lst = _blogBl.GetList(filter);
+    //     return Ok(lst);
+    // }
+    //
+    //
+    // [HttpPost]
+    // [Route("selectById")]
+    // public IActionResult SelectById(int id)
+    // {
+    //     BlogResponseModel res = _blogBl.GetById(id);
+    //     if (res.Response.IsError)
+    //     {
+    //         return Ok($"{res.Response.ResMessage}");
+    //     }
+    //     
+    //     return Ok(res.ResData);
+    // }
 
     
     [HttpPost]
