@@ -13,4 +13,10 @@
       <ProjectReference Include="..\MMNNDotNetCore.Models\MMNNDotNetCore.Models.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="FrmMainMenu.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>
