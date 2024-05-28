@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="FrmMainMenu.cs">
+      <Compile Update="Forms\FrmMainMenu.cs">
         <SubType>Form</SubType>
       </Compile>
     </ItemGroup>
