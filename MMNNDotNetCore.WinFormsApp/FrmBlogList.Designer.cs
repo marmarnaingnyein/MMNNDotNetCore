@@ -30,7 +30,7 @@
         {
             dataGridBlog = new DataGridView();
             colID = new DataGridViewTextBoxColumn();
-            colCheckBox = new DataGridViewCheckBoxColumn();
+            colSelect = new DataGridViewCheckBoxColumn();
             colTitle = new DataGridViewTextBoxColumn();
             colAuthor = new DataGridViewTextBoxColumn();
             colContent = new DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@
             dataGridBlog.AllowUserToDeleteRows = false;
             dataGridBlog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridBlog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridBlog.Columns.AddRange(new DataGridViewColumn[] { colID, colCheckBox, colTitle, colAuthor, colContent });
+            dataGridBlog.Columns.AddRange(new DataGridViewColumn[] { colID, colSelect, colTitle, colAuthor, colContent });
             dataGridBlog.Dock = DockStyle.Fill;
             dataGridBlog.Location = new Point(0, 0);
             dataGridBlog.Name = "dataGridBlog";
@@ -56,23 +56,25 @@
             // 
             colID.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             colID.DataPropertyName = "BlogId";
+            colID.FillWeight = 5F;
             colID.HeaderText = "ID";
+            colID.MaxInputLength = 1;
             colID.Name = "colID";
             colID.ReadOnly = true;
+            colID.Resizable = DataGridViewTriState.False;
             colID.Visible = false;
-            colID.Width = 137;
+            colID.Width = 5;
             // 
-            // colCheckBox
+            // colSelect
             // 
-            colCheckBox.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colCheckBox.FillWeight = 40.54054F;
-            colCheckBox.HeaderText = "";
-            colCheckBox.IndeterminateValue = "1";
-            colCheckBox.Name = "colCheckBox";
-            colCheckBox.ReadOnly = true;
-            colCheckBox.Resizable = DataGridViewTriState.True;
-            colCheckBox.SortMode = DataGridViewColumnSortMode.Automatic;
-            colCheckBox.Width = 19;
+            colSelect.DataPropertyName = "IsSelect";
+            colSelect.FalseValue = "0";
+            colSelect.FillWeight = 13.7625122F;
+            colSelect.HeaderText = "";
+            colSelect.Name = "colSelect";
+            colSelect.ReadOnly = true;
+            colSelect.Resizable = DataGridViewTriState.False;
+            colSelect.TrueValue = "1";
             // 
             // colTitle
             // 
@@ -95,7 +97,7 @@
             // colContent
             // 
             colContent.DataPropertyName = "BlogContent";
-            colContent.FillWeight = 129.729736F;
+            colContent.FillWeight = 189.922668F;
             colContent.HeaderText = "Content";
             colContent.Name = "colContent";
             colContent.ReadOnly = true;
@@ -118,7 +120,7 @@
 
         private DataGridView dataGridBlog;
         private DataGridViewTextBoxColumn colID;
-        private DataGridViewCheckBoxColumn colCheckBox;
+        private DataGridViewCheckBoxColumn colSelect;
         private DataGridViewTextBoxColumn colTitle;
         private DataGridViewTextBoxColumn colAuthor;
         private DataGridViewTextBoxColumn colContent;

@@ -26,7 +26,15 @@ namespace MMNNDotNetCore.WinFormsApp
         private void FrmBlogList_Load(object sender, EventArgs e)
         {
             List<BlogModel> lst = _dapperService.GetList<BlogModel>(Query.Select);
-            dataGridBlog.DataSource = lst;
+            List<BlogDataModel> lstData = lst.Select(s => new BlogDataModel()
+            {
+                IsSelect = true,
+                BlogId = s.BlogId,
+                BlogTitle = s.BlogTitle,
+                BlogAuthor = s.BlogAuthor,
+                BlogContent = s.BlogContent
+            }).ToList();
+            dataGridBlog.DataSource = lstData;
         }
     }
 }
