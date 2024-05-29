@@ -47,7 +47,6 @@
             dataGridBlog.Dock = DockStyle.Fill;
             dataGridBlog.Location = new Point(0, 0);
             dataGridBlog.Name = "dataGridBlog";
-            dataGridBlog.ReadOnly = true;
             dataGridBlog.RowTemplate.Height = 25;
             dataGridBlog.Size = new Size(591, 450);
             dataGridBlog.TabIndex = 0;
@@ -58,7 +57,7 @@
             colID.DataPropertyName = "BlogId";
             colID.FillWeight = 5F;
             colID.HeaderText = "ID";
-            colID.MaxInputLength = 1;
+            colID.MaxInputLength = 99999;
             colID.Name = "colID";
             colID.ReadOnly = true;
             colID.Resizable = DataGridViewTriState.False;
@@ -71,8 +70,8 @@
             colSelect.FalseValue = "0";
             colSelect.FillWeight = 13.7625122F;
             colSelect.HeaderText = "";
+            colSelect.IndeterminateValue = "0";
             colSelect.Name = "colSelect";
-            colSelect.ReadOnly = true;
             colSelect.Resizable = DataGridViewTriState.False;
             colSelect.TrueValue = "1";
             // 

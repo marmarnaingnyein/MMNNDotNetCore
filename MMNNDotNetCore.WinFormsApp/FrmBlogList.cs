@@ -36,5 +36,10 @@ namespace MMNNDotNetCore.WinFormsApp
             }).ToList();
             dataGridBlog.DataSource = lstData;
         }
+
+        private void dataGridBlog_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

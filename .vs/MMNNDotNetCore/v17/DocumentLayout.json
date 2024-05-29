@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmbloglist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\blogdatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\blogdatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B1650978-26BD-47B0-BB99-42FC7A48A48A}|MMNNDotNetCore.Business\\MMNNDotNetCore.Business.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.business\\service\\dapperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FrmBlog.cs",
               "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
               "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
@@ -68,15 +68,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BlogDataModel.cs",
-              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "DocumentIndex": 1,
+              "Title": "FrmBlogList.Designer.cs",
+              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs*",
+              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs*",
+              "ViewState": "AQIAADgAAAAAmJmZmZkuwEAAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T17:19:34.588Z",
+              "WhenOpened": "2024-05-29T17:32:28.597Z",
               "EditorCaption": ""
             },
             {
@@ -93,13 +93,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FrmBlogList.cs",
               "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
               "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
               "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
               "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
-              "ViewState": "AQIAAA4AAADAzMzMzMwnwB4AAAAfAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAUwCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T17:39:29.465Z",
               "EditorCaption": ""
