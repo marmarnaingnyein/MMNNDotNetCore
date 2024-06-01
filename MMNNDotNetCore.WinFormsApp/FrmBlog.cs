@@ -73,4 +73,19 @@ public partial class FrmBlog : Form
         txtAuthor.Clear();
         txtContent.Clear();
     }
+
+    public void Edit(int blogId)
+    {
+        BlogModel? item = _dapperService.GetFirstById<BlogModel>(Query.SelectById,
+           new BlogModel { BlogId = blogId });
+
+        if (item != null) 
+        {
+            FrmBlog frmBlog = new FrmBlog();
+            frmBlog.ShowDialog();
+            txtTitle.Text = item.BlogTitle;
+            txtAuthor.Text = item.BlogAuthor;
+            txtContent.Text = item.BlogContent;
+        }
+    }
 }

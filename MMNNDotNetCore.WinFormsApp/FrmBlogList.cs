@@ -59,8 +59,21 @@ namespace MMNNDotNetCore.WinFormsApp
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            
+            List<BlogDataModel> lstData = (List<BlogDataModel>)Convert.ChangeType(dataGridBlog.DataSource, typeof(List<BlogDataModel>));
+            int count = lstData.Where(w => w.IsSelect == 1).Count();
+
+            if(count > 1)
+            {
+                MessageBox.Show("Please select one row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            BlogDataModel item = lstData.Where(w => w.IsSelect == 1).FirstOrDefault();
+
+            FrmBlog frmBlog = new FrmBlog();
+            frmBlog.Edit(item.BlogId);
         }
+
 
     }
 }
