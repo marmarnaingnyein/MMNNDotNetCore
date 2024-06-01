@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AD564EB-0052-4847-9C04-91B7CC040F6F}|MMNNDotNetCore.ConsoleApp\\MMNNDotNetCore.ConsoleApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.consoleapp\\features\\dapperexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "FrmBlog.cs",
               "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
               "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
@@ -78,7 +78,7 @@
               "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
               "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
               "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
-              "ViewState": "AQIAABsAAAAAAAAAAAAiwCoAAAAfAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAqwD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T17:39:29.465Z",
               "EditorCaption": ""
@@ -110,12 +110,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FrmBlogList.Designer.cs",
               "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
               "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
-              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
-              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs*",
+              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs*",
               "ViewState": "AQIAAIUAAAAAAAAAAAAiwJAAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T17:32:28.597Z",

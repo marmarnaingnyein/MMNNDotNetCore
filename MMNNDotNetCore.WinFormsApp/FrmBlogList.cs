@@ -25,6 +25,7 @@ namespace MMNNDotNetCore.WinFormsApp
 
         private void FrmBlogList_Load(object sender, EventArgs e)
         {
+            //timer1.Start();
             SelectList();
         }
 
@@ -40,7 +41,6 @@ namespace MMNNDotNetCore.WinFormsApp
                 BlogContent = s.BlogContent
             }).ToList();
             dataGridBlog.DataSource = lstData;
-            dataGridBlog.Update();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -48,17 +48,19 @@ namespace MMNNDotNetCore.WinFormsApp
             List<BlogDataModel> lstData = (List<BlogDataModel>)Convert.ChangeType(dataGridBlog.DataSource, typeof(List<BlogDataModel>));
             List<BlogDataModel> lstDelete = lstData.Where(w => w.IsSelect == 1).ToList();
 
-            foreach(BlogDataModel item in lstDelete)
+            foreach (BlogDataModel item in lstDelete)
             {
                 int result = _dapperService.Execute(Query.Delete, item);
             }
 
             MessageBox.Show("Delete successfully.", "Blog Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            SelectList();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            
         }
+
     }
 }
