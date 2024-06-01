@@ -34,6 +34,7 @@
             colTitle = new DataGridViewTextBoxColumn();
             colAuthor = new DataGridViewTextBoxColumn();
             colContent = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridBlog).BeginInit();
             SuspendLayout();
             // 
@@ -44,11 +45,11 @@
             dataGridBlog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridBlog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridBlog.Columns.AddRange(new DataGridViewColumn[] { colID, colSelect, colTitle, colAuthor, colContent });
-            dataGridBlog.Dock = DockStyle.Fill;
+            dataGridBlog.Dock = DockStyle.Top;
             dataGridBlog.Location = new Point(0, 0);
             dataGridBlog.Name = "dataGridBlog";
             dataGridBlog.RowTemplate.Height = 25;
-            dataGridBlog.Size = new Size(591, 450);
+            dataGridBlog.Size = new Size(591, 396);
             dataGridBlog.TabIndex = 0;
             // 
             // colID
@@ -101,11 +102,21 @@
             colContent.Name = "colContent";
             colContent.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(377, 402);
+            button1.Name = "button1";
+            button1.Size = new Size(90, 27);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // FrmBlogList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(591, 450);
+            Controls.Add(button1);
             Controls.Add(dataGridBlog);
             Name = "FrmBlogList";
             StartPosition = FormStartPosition.CenterScreen;
@@ -123,5 +134,6 @@
         private DataGridViewTextBoxColumn colTitle;
         private DataGridViewTextBoxColumn colAuthor;
         private DataGridViewTextBoxColumn colContent;
+        private Button button1;
     }
 }

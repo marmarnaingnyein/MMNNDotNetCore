@@ -8,7 +8,7 @@ namespace MMNNDotNetCore.WinFormsApp
 {
     public class BlogDataModel
     {
-        public bool IsSelect { get; set; }
+        public int IsSelect { get; set; }
         public int BlogId { get; set; }
         public string BlogTitle { get; set; }
         public string BlogAuthor { get; set; }

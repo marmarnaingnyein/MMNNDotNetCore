@@ -28,7 +28,7 @@ namespace MMNNDotNetCore.WinFormsApp
             List<BlogModel> lst = _dapperService.GetList<BlogModel>(Query.Select);
             List<BlogDataModel> lstData = lst.Select(s => new BlogDataModel()
             {
-                IsSelect = true,
+                IsSelect = 0,
                 BlogId = s.BlogId,
                 BlogTitle = s.BlogTitle,
                 BlogAuthor = s.BlogAuthor,
@@ -41,5 +41,6 @@ namespace MMNNDotNetCore.WinFormsApp
         {
 
         }
+
     }
 }
