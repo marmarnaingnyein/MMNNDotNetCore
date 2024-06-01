@@ -34,7 +34,8 @@
             colTitle = new DataGridViewTextBoxColumn();
             colAuthor = new DataGridViewTextBoxColumn();
             colContent = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            btnDelete = new Button();
+            btnEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridBlog).BeginInit();
             SuspendLayout();
             // 
@@ -102,21 +103,34 @@
             colContent.Name = "colContent";
             colContent.ReadOnly = true;
             // 
-            // button1
+            // btnDelete
             // 
-            button1.Location = new Point(377, 402);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 27);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnDelete.BackColor = SystemColors.Control;
+            btnDelete.Location = new Point(396, 404);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(90, 27);
+            btnDelete.TabIndex = 1;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(492, 404);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(87, 27);
+            btnEdit.TabIndex = 2;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // FrmBlogList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(591, 450);
-            Controls.Add(button1);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
             Controls.Add(dataGridBlog);
             Name = "FrmBlogList";
             StartPosition = FormStartPosition.CenterScreen;
@@ -134,6 +148,7 @@
         private DataGridViewTextBoxColumn colTitle;
         private DataGridViewTextBoxColumn colAuthor;
         private DataGridViewTextBoxColumn colContent;
-        private Button button1;
+        private Button btnDelete;
+        private Button btnEdit;
     }
 }

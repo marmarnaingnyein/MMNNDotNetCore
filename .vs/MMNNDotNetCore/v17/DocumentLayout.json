@@ -15,20 +15,20 @@
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmbloglist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\blogdatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\blogdatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AD564EB-0052-4847-9C04-91B7CC040F6F}|MMNNDotNetCore.ConsoleApp\\MMNNDotNetCore.ConsoleApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.consoleapp\\features\\dapperexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AD564EB-0052-4847-9C04-91B7CC040F6F}|MMNNDotNetCore.ConsoleApp\\MMNNDotNetCore.ConsoleApp.csproj|solutionrelative:mmnndotnetcore.consoleapp\\features\\dapperexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B1650978-26BD-47B0-BB99-42FC7A48A48A}|MMNNDotNetCore.Business\\MMNNDotNetCore.Business.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.business\\service\\dapperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1650978-26BD-47B0-BB99-42FC7A48A48A}|MMNNDotNetCore.Business\\MMNNDotNetCore.Business.csproj|solutionrelative:mmnndotnetcore.business\\service\\dapperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AD564EB-0052-4847-9C04-91B7CC040F6F}|MMNNDotNetCore.ConsoleApp\\MMNNDotNetCore.ConsoleApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.consoleapp\\features\\dapperexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AD564EB-0052-4847-9C04-91B7CC040F6F}|MMNNDotNetCore.ConsoleApp\\MMNNDotNetCore.ConsoleApp.csproj|solutionrelative:mmnndotnetcore.consoleapp\\features\\dapperexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|d:\\mmnn_work\\_githubprojects\\mmnndotnetcore\\mmnndotnetcore.winformsapp\\blogdatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|solutionrelative:mmnndotnetcore.winformsapp\\blogdatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A47925BF-032A-476B-A4A9-F4AE93E4EA80}|MMNNDotNetCore.WinFormsApp\\MMNNDotNetCore.WinFormsApp.csproj|D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\mmnndotnetcore.winformsapp\\frmblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -54,17 +54,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FrmBlog.cs",
               "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
               "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
               "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
               "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlog.cs",
-              "ViewState": "AQIAACYAAAAAmZmZmZkuwCwAAAAvAAAA",
+              "ViewState": "AQIAACYAAAAAmZmZmZkuwDEAAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T17:45:37.345Z",
               "IsPinned": true,
@@ -72,15 +72,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmBlogList.Designer.cs",
-              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
-              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
-              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
-              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
-              "ViewState": "AQIAADgAAAAAmJmZmZkuwEEAAAAPAAAA",
+              "DocumentIndex": 0,
+              "Title": "FrmBlogList.cs",
+              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
+              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
+              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
+              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
+              "ViewState": "AQIAABsAAAAAAAAAAAAiwCoAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T17:32:28.597Z",
+              "WhenOpened": "2024-05-28T17:39:29.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DapperExample.cs",
+              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
+              "RelativeDocumentMoniker": "MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
+              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
+              "RelativeToolTip": "MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAhwFkAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T09:33:42.814Z",
               "EditorCaption": ""
             },
             {
@@ -97,28 +110,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmBlogList.cs",
-              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
-              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs",
-              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
-              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.cs*",
-              "ViewState": "AQIAABYAAAAAAAAAAADwvxwAAAAjAAAA",
+              "DocumentIndex": 2,
+              "Title": "FrmBlogList.Designer.cs",
+              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\FrmBlogList.Designer.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAiwJAAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:39:29.465Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BlogDataModel.cs",
-              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T16:31:37.281Z",
+              "WhenOpened": "2024-05-29T17:32:28.597Z",
               "EditorCaption": ""
             },
             {
@@ -129,21 +129,23 @@
               "RelativeDocumentMoniker": "MMNNDotNetCore.Business\\Service\\DapperService.cs",
               "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.Business\\Service\\DapperService.cs",
               "RelativeToolTip": "MMNNDotNetCore.Business\\Service\\DapperService.cs",
-              "ViewState": "AQIAAAMAAACAZmZmZmY9wAUAAAAaAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T09:31:57.388Z"
+              "WhenOpened": "2024-05-26T09:31:57.388Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "DapperExample.cs",
-              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
-              "RelativeDocumentMoniker": "MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
-              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
-              "RelativeToolTip": "MMNNDotNetCore.ConsoleApp\\Features\\DapperExample.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Title": "BlogDataModel.cs",
+              "DocumentMoniker": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
+              "RelativeDocumentMoniker": "MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
+              "ToolTip": "D:\\MMNN_WORK\\_GitHubProjects\\MMNNDotNetCore\\MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
+              "RelativeToolTip": "MMNNDotNetCore.WinFormsApp\\BlogDataModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T09:33:42.814Z"
+              "WhenOpened": "2024-06-01T16:31:37.281Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
