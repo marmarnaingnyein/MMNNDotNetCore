@@ -7,15 +7,17 @@ namespace MMNNDotNetCore.WinFormsApp;
 public partial class FrmBlog : Form
 {
     private readonly DapperService _dapperService;
+    private bool IsNew = true;
     public FrmBlog()
     {
-        InitializeComponent();
+        Initialize();
         _dapperService = new DapperService();
     }
 
     public FrmBlog(int blogId)
     {
-        InitializeComponent();
+        IsNew = false;
+        Initialize();
         _dapperService = new DapperService();
 
         BlogModel? item = _dapperService.GetFirstById<BlogModel>(Query.SelectById,
@@ -33,7 +35,7 @@ public partial class FrmBlog : Form
     {
         try
         {
-            if (string.IsNullOrEmpty(txtTitle.Text)) 
+            if (string.IsNullOrEmpty(txtTitle.Text))
             {
                 MessageBox.Show("Blog Title is required!");
                 return;
@@ -90,4 +92,15 @@ public partial class FrmBlog : Form
         txtContent.Clear();
     }
 
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void Initialize()
+    {
+        InitializeComponent();
+        btnSave.Visible = IsNew;
+        btnEdit.Visible = !IsNew;
+    }
 }

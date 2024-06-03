@@ -37,11 +37,13 @@ partial class FrmBlog
         txtAuthor = new TextBox();
         txtContent = new TextBox();
         btnCancel = new Button();
+        btnEdit = new Button();
         SuspendLayout();
         // 
         // btnSave
         // 
-        btnSave.BackColor = Color.FromArgb(229, 57, 53);
+        btnSave.BackColor = Color.FromArgb(0, 192, 192);
+        btnSave.DialogResult = DialogResult.OK;
         btnSave.FlatAppearance.BorderSize = 0;
         btnSave.FlatStyle = FlatStyle.Flat;
         btnSave.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
@@ -50,7 +52,7 @@ partial class FrmBlog
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(75, 26);
         btnSave.TabIndex = 0;
-        btnSave.Text = "&Save";
+        btnSave.Text = "&Add";
         btnSave.UseVisualStyleBackColor = false;
         btnSave.Click += btnSave_Click;
         // 
@@ -113,7 +115,7 @@ partial class FrmBlog
         btnCancel.FlatStyle = FlatStyle.Flat;
         btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
         btnCancel.ForeColor = SystemColors.Control;
-        btnCancel.Location = new Point(272, 274);
+        btnCancel.Location = new Point(255, 274);
         btnCancel.Name = "btnCancel";
         btnCancel.Size = new Size(75, 26);
         btnCancel.TabIndex = 7;
@@ -121,11 +123,28 @@ partial class FrmBlog
         btnCancel.UseVisualStyleBackColor = false;
         btnCancel.Click += btnCancel_Click;
         // 
+        // btnEdit
+        // 
+        btnEdit.BackColor = Color.Lime;
+        btnEdit.Cursor = Cursors.IBeam;
+        btnEdit.FlatAppearance.BorderSize = 0;
+        btnEdit.FlatStyle = FlatStyle.Flat;
+        btnEdit.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+        btnEdit.ForeColor = Color.Cornsilk;
+        btnEdit.Location = new Point(362, 274);
+        btnEdit.Name = "btnEdit";
+        btnEdit.Size = new Size(75, 26);
+        btnEdit.TabIndex = 8;
+        btnEdit.Text = "&Edit";
+        btnEdit.UseVisualStyleBackColor = false;
+        btnEdit.Click += btnEdit_Click;
+        // 
         // FrmBlog
         // 
         AutoScaleDimensions = new SizeF(7F, 17F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(484, 320);
+        Controls.Add(btnEdit);
         Controls.Add(btnCancel);
         Controls.Add(txtContent);
         Controls.Add(txtAuthor);
@@ -152,4 +171,5 @@ partial class FrmBlog
     private TextBox txtAuthor;
     private TextBox txtContent;
     private Button btnCancel;
+    private Button btnEdit;
 }
