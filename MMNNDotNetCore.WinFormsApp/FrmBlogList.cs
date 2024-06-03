@@ -62,7 +62,7 @@ namespace MMNNDotNetCore.WinFormsApp
             List<BlogDataModel> lstData = (List<BlogDataModel>)Convert.ChangeType(dataGridBlog.DataSource, typeof(List<BlogDataModel>));
             int count = lstData.Where(w => w.IsSelect == 1).Count();
 
-            if(count > 1)
+            if (count > 1)
             {
                 MessageBox.Show("Please select one row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -73,7 +73,6 @@ namespace MMNNDotNetCore.WinFormsApp
             FrmBlog frmBlog = new FrmBlog();
             frmBlog.Edit(item.BlogId);
         }
-
 
     }
 }
