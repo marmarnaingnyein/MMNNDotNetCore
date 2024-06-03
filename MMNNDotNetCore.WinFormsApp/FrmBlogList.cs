@@ -70,8 +70,8 @@ namespace MMNNDotNetCore.WinFormsApp
 
             BlogDataModel item = lstData.Where(w => w.IsSelect == 1).FirstOrDefault();
 
-            FrmBlog frmBlog = new FrmBlog();
-            frmBlog.Edit(item.BlogId);
+            FrmBlog frmBlog = new FrmBlog(item.BlogId);
+            frmBlog.ShowDialog();
         }
 
     }

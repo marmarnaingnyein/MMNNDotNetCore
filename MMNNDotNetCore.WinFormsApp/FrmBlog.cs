@@ -13,6 +13,22 @@ public partial class FrmBlog : Form
         _dapperService = new DapperService();
     }
 
+    public FrmBlog(int blogId)
+    {
+        InitializeComponent();
+        _dapperService = new DapperService();
+
+        BlogModel? item = _dapperService.GetFirstById<BlogModel>(Query.SelectById,
+           new BlogModel { BlogId = blogId });
+
+        if (item != null)
+        {
+            txtTitle.Text = item.BlogTitle;
+            txtAuthor.Text = item.BlogAuthor;
+            txtContent.Text = item.BlogContent;
+        }
+    }
+
     private async void btnSave_Click(object sender, EventArgs e)
     {
         try
@@ -74,18 +90,4 @@ public partial class FrmBlog : Form
         txtContent.Clear();
     }
 
-    public void Edit(int blogId)
-    {
-        BlogModel? item = _dapperService.GetFirstById<BlogModel>(Query.SelectById,
-           new BlogModel { BlogId = blogId });
-
-        if (item != null) 
-        {
-            FrmBlog frmBlog = new FrmBlog();
-            frmBlog.ShowDialog();
-            txtTitle.Text = item.BlogTitle;
-            txtAuthor.Text = item.BlogAuthor;
-            txtContent.Text = item.BlogContent;
-        }
-    }
 }
