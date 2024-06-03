@@ -135,7 +135,7 @@ partial class FrmBlog
         btnEdit.Name = "btnEdit";
         btnEdit.Size = new Size(75, 26);
         btnEdit.TabIndex = 8;
-        btnEdit.Text = "&Edit";
+        btnEdit.Text = "&Update";
         btnEdit.UseVisualStyleBackColor = false;
         btnEdit.Click += btnEdit_Click;
         // 

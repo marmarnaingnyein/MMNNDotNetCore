@@ -72,6 +72,8 @@ namespace MMNNDotNetCore.WinFormsApp
 
             FrmBlog frmBlog = new FrmBlog(item.BlogId);
             frmBlog.ShowDialog();
+
+            SelectList();
         }
 
     }

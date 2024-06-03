@@ -8,6 +8,7 @@ public partial class FrmBlog : Form
 {
     private readonly DapperService _dapperService;
     private bool IsNew = true;
+    private int _BlogId = 0;
     public FrmBlog()
     {
         Initialize();
@@ -16,6 +17,7 @@ public partial class FrmBlog : Form
 
     public FrmBlog(int blogId)
     {
+        _BlogId = blogId;
         IsNew = false;
         Initialize();
         _dapperService = new DapperService();
@@ -35,21 +37,10 @@ public partial class FrmBlog : Form
     {
         try
         {
-            if (string.IsNullOrEmpty(txtTitle.Text))
+            string message = CheckRequiredFields();
+            if (!string.IsNullOrEmpty(message))
             {
-                MessageBox.Show("Blog Title is required!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtAuthor.Text))
-            {
-                MessageBox.Show("Blog Author is required!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtContent.Text))
-            {
-                MessageBox.Show("Blog Content is required!");
+                MessageBox.Show(message);
                 return;
             }
 
@@ -61,7 +52,7 @@ public partial class FrmBlog : Form
             };
 
             int result = _dapperService.Execute(Query.Create, blogModel);
-            string message = result > 0 ? "Saving Successful." : "Saving Fail!";
+            message = result > 0 ? "Saving Successful." : "Saving Fail!";
 
             if (result == 0)
             {
@@ -92,9 +83,65 @@ public partial class FrmBlog : Form
         txtContent.Clear();
     }
 
+    private string CheckRequiredFields()
+    {
+        string message = string.Empty;
+        if (string.IsNullOrEmpty(txtTitle.Text))
+        {
+            message = "Blog Title is required!";
+            return message;
+        }
+
+        if (string.IsNullOrEmpty(txtAuthor.Text))
+        {
+            message = "Blog Author is required!";
+            return message;
+        }
+
+        if (string.IsNullOrEmpty(txtContent.Text))
+        {
+            message = "Blog Content is required!";
+            return message;
+        }
+
+        return message;
+    }
+
     private void btnEdit_Click(object sender, EventArgs e)
     {
+        try
+        {
+            string message = CheckRequiredFields();
+            if (!string.IsNullOrEmpty(message))
+            {
+                MessageBox.Show(message);
+                return;
+            }
 
+            BlogModel blogModel = new BlogModel()
+            {
+                BlogId = _BlogId,
+                BlogTitle = txtTitle.Text.Trim(),
+                BlogAuthor = txtAuthor.Text.Trim(),
+                BlogContent = txtContent.Text.Trim()
+            };
+
+            int result = _dapperService.Execute(Query.Update, blogModel);
+            message = result > 0 ? "Saving Successful." : "Saving Fail!";
+
+            if (result == 0)
+            {
+                MessageBox.Show(message, "Blog Update", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show(message, "Blog Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 
     private void Initialize()
